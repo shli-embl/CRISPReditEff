@@ -1,0 +1,1127 @@
+This is cutadapt 2.3 with Python 3.7.3
+Command line parameters: -g AGATGTGTATAAGAGACAG -G AGATGTGTATAAGAGACAG -a CTGTCTCTTATACACATCT -A CTGTCTCTTATACACATCT -g TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG -G TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG -a CTGTCTCTTATACACATCTGACGCTGCCGACGA -A CTGTCTCTTATACACATCTGACGCTGCCGACGA -g GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG -G GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG -a CTGTCTCTTATACACATCTCCGAGCCCACGAGAC -A CTGTCTCTTATACACATCTCCGAGCCCACGAGAC -o example/seqs/example.r1.0.trimmed.fastq -p example/seqs/example.r2.0.trimmed.fastq -q 20 --trim-n -m 20 --max-n=0 example/example.YL154_1.fastq.gz example/example.YL154_2.fastq.gz
+Processing reads on 1 core in paired-end mode ...
+Finished in 26.66 s (212 us/read; 0.28 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            125,926
+  Read 1 with adapter:                  50,947 (40.5%)
+  Read 2 with adapter:                  50,370 (40.0%)
+Pairs that were too short:                 130 (0.1%)
+Pairs with too many N:                     104 (0.1%)
+Pairs written (passing filters):       125,692 (99.8%)
+
+Total basepairs processed:    37,777,800 bp
+  Read 1:    18,888,900 bp
+  Read 2:    18,888,900 bp
+Quality-trimmed:                 254,529 bp (0.7%)
+  Read 1:        93,553 bp
+  Read 2:       160,976 bp
+Total written (filtered):     32,665,074 bp (86.5%)
+  Read 1:    16,348,220 bp
+  Read 2:    16,316,854 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: CTGTCTCTTATACACATCT; Type: regular 3'; Length: 19; Trimmed: 9211 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1
+
+Bases preceding removed adapters:
+  A: 11.1%
+  C: 41.9%
+  G: 26.4%
+  T: 20.6%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	1212	1967.6	0	1212
+4	753	491.9	0	753
+5	460	123.0	0	460
+6	501	30.7	0	501
+7	331	7.7	0	331
+8	503	1.9	0	503
+9	660	0.5	0	657 3
+10	407	0.1	1	400 7
+11	428	0.0	1	423 5
+12	581	0.0	1	564 17
+13	651	0.0	1	645 6
+14	288	0.0	1	275 13
+15	413	0.0	1	403 10
+16	642	0.0	1	616 26
+17	477	0.0	1	463 14
+18	637	0.0	1	620 17
+19	245	0.0	1	239 6
+20	1	0.0	1	0 1
+28	1	0.0	1	1
+31	1	0.0	1	0 1
+32	1	0.0	1	1
+33	1	0.0	1	1
+34	1	0.0	1	0 1
+38	1	0.0	1	1
+39	2	0.0	1	1 1
+41	1	0.0	1	1
+42	1	0.0	1	0 1
+43	2	0.0	1	0 2
+51	1	0.0	1	1
+65	1	0.0	1	0 1
+68	2	0.0	1	2
+76	1	0.0	1	0 1
+80	1	0.0	1	1
+88	1	0.0	1	0 1
+95	1	0.0	1	0 1
+97	1	0.0	1	0 1
+
+
+=== First read: Adapter 2 ===
+
+Sequence: CTGTCTCTTATACACATCTGACGCTGCCGACGA; Type: regular 3'; Length: 33; Trimmed: 558 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30-33 bp: 3
+
+Bases preceding removed adapters:
+  A: 10.8%
+  C: 44.8%
+  G: 25.4%
+  T: 19.0%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+20	554	0.0	2	0 1 553
+21	2	0.0	2	0 1 1
+22	1	0.0	2	0 1
+24	1	0.0	2	0 0 1
+
+
+=== First read: Adapter 3 ===
+
+Sequence: CTGTCTCTTATACACATCTCCGAGCCCACGAGAC; Type: regular 3'; Length: 34; Trimmed: 40047 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30-34 bp: 3
+
+Bases preceding removed adapters:
+  A: 8.8%
+  C: 43.7%
+  G: 29.3%
+  T: 18.2%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+18	1	0.0	1	0 0 1
+19	8	0.0	1	0 8
+20	26	0.0	2	0 20 6
+21	887	0.0	2	854 27 6
+22	630	0.0	2	605 23 2
+23	468	0.0	2	440 15 13
+24	246	0.0	2	232 12 2
+25	538	0.0	2	506 29 3
+26	446	0.0	2	422 23 1
+27	781	0.0	2	745 28 8
+28	86	0.0	2	63 17 5 1
+29	823	0.0	2	785 29 9
+30	519	0.0	3	483 30 5 1
+31	657	0.0	3	596 46 9 6
+32	635	0.0	3	605 20 7 3
+33	244	0.0	3	190 43 5 6
+34	610	0.0	3	568 36 3 3
+35	794	0.0	3	732 53 3 6
+36	551	0.0	3	524 22 5
+37	198	0.0	3	174 21 3
+38	516	0.0	3	480 24 9 3
+39	598	0.0	3	549 40 5 4
+40	658	0.0	3	613 35 7 3
+41	410	0.0	3	347 53 9 1
+42	1595	0.0	3	1520 66 6 3
+43	591	0.0	3	549 35 4 3
+44	337	0.0	3	312 19 5 1
+45	106	0.0	3	96 9 1
+46	201	0.0	3	182 18 0 1
+47	388	0.0	3	359 27 1 1
+48	503	0.0	3	462 37 2 2
+49	772	0.0	3	731 36 5
+50	273	0.0	3	242 24 6 1
+51	581	0.0	3	545 33 2 1
+52	789	0.0	3	739 46 3 1
+53	667	0.0	3	626 32 8 1
+54	527	0.0	3	491 30 4 2
+55	871	0.0	3	825 37 9
+56	538	0.0	3	510 24 3 1
+57	342	0.0	3	316 19 7
+58	464	0.0	3	431 26 6 1
+59	792	0.0	3	759 30 3
+60	402	0.0	3	374 26 2
+61	322	0.0	3	308 11 1 2
+62	826	0.0	3	799 23 3 1
+63	454	0.0	3	416 29 6 3
+64	619	0.0	3	581 33 3 2
+65	675	0.0	3	631 39 4 1
+66	505	0.0	3	476 26 3
+67	432	0.0	3	406 20 3 3
+68	531	0.0	3	504 24 2 1
+69	580	0.0	3	546 30 2 2
+70	454	0.0	3	424 26 2 2
+71	496	0.0	3	457 34 4 1
+72	548	0.0	3	522 23 2 1
+73	600	0.0	3	563 29 8
+74	803	0.0	3	747 43 8 5
+75	918	0.0	3	874 31 7 6
+76	174	0.0	3	153 14 5 2
+77	196	0.0	3	186 9 1
+78	440	0.0	3	421 17 2
+79	438	0.0	3	415 22 1
+80	452	0.0	3	438 13 1
+81	379	0.0	3	366 13
+82	417	0.0	3	396 21
+83	425	0.0	3	402 23
+84	405	0.0	3	386 16 3
+85	475	0.0	3	445 25 3 2
+86	408	0.0	3	388 17 3
+87	318	0.0	3	295 20 2 1
+88	268	0.0	3	254 13 0 1
+89	244	0.0	3	228 13 3
+90	253	0.0	3	241 12
+91	240	0.0	3	224 13 3
+92	322	0.0	3	295 22 5
+93	1575	0.0	3	1473 81 17 4
+94	367	0.0	3	342 21 3 1
+95	273	0.0	3	251 19 1 2
+96	170	0.0	3	157 11 1 1
+97	109	0.0	3	103 5 1
+98	105	0.0	3	100 5
+99	83	0.0	3	76 5 0 2
+100	102	0.0	3	97 4 1
+101	68	0.0	3	62 5 1
+102	82	0.0	3	77 4 1
+103	143	0.0	3	133 9 1
+104	49	0.0	3	48 1
+105	51	0.0	3	45 5 0 1
+106	39	0.0	3	38 1
+107	31	0.0	3	29 2
+108	44	0.0	3	40 4
+109	15	0.0	3	14 1
+110	7	0.0	3	5 1 1
+111	4	0.0	3	4
+112	6	0.0	3	4 2
+113	6	0.0	3	6
+114	5	0.0	3	4 1
+115	2	0.0	3	2
+116	3	0.0	3	2 1
+117	1	0.0	3	1
+119	1	0.0	3	1
+120	2	0.0	3	0 0 2
+122	4	0.0	3	2 0 1 1
+123	1	0.0	3	0 0 1
+124	1	0.0	3	1
+125	2	0.0	3	0 1 1
+126	1	0.0	3	1
+127	3	0.0	3	1 2
+128	1	0.0	3	0 1
+131	1	0.0	3	1
+134	1	0.0	3	1
+135	1	0.0	3	1
+139	2	0.0	3	1 1
+
+
+=== First read: Adapter 4 ===
+
+Sequence: AGATGTGTATAAGAGACAG; Type: regular 5'; Length: 19; Trimmed: 1130 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	951	1967.6	0	951
+4	113	491.9	0	113
+5	33	123.0	0	33
+6	18	30.7	0	18
+7	3	7.7	0	3
+9	2	0.5	0	0 2
+10	3	0.1	1	0 3
+11	6	0.0	1	0 6
+12	1	0.0	1	0 1
+
+
+=== First read: Adapter 5 ===
+
+Sequence: TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG; Type: regular 5'; Length: 33; Trimmed: 1 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30-33 bp: 3
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+24	1	0.0	2	1
+
+
+=== First read: Adapter 6 ===
+
+Sequence: GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG; Type: regular 5'; Length: 34; Trimmed: 0 times.
+
+=== Second read: Adapter 7 ===
+
+Sequence: CTGTCTCTTATACACATCT; Type: regular 3'; Length: 19; Trimmed: 9266 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1
+
+Bases preceding removed adapters:
+  A: 12.1%
+  C: 40.3%
+  G: 25.9%
+  T: 21.7%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	1302	1967.6	0	1302
+4	718	491.9	0	718
+5	511	123.0	0	511
+6	404	30.7	0	404
+7	320	7.7	0	320
+8	485	1.9	0	485
+9	650	0.5	0	648 2
+10	405	0.1	1	382 23
+11	396	0.0	1	383 13
+12	579	0.0	1	549 30
+13	774	0.0	1	758 16
+14	140	0.0	1	118 22
+15	489	0.0	1	476 13
+16	708	0.0	1	674 34
+17	328	0.0	1	304 24
+18	498	0.0	1	478 20
+19	533	0.0	1	506 27
+20	2	0.0	1	0 2
+27	1	0.0	1	0 1
+28	1	0.0	1	0 1
+29	1	0.0	1	0 1
+33	1	0.0	1	0 1
+36	2	0.0	1	0 2
+37	1	0.0	1	0 1
+39	1	0.0	1	1
+43	1	0.0	1	0 1
+47	1	0.0	1	0 1
+53	1	0.0	1	0 1
+61	1	0.0	1	0 1
+62	1	0.0	1	0 1
+63	1	0.0	1	0 1
+64	1	0.0	1	0 1
+67	1	0.0	1	0 1
+70	1	0.0	1	0 1
+73	1	0.0	1	1
+75	1	0.0	1	1
+77	1	0.0	1	0 1
+78	1	0.0	1	0 1
+79	1	0.0	1	0 1
+92	1	0.0	1	0 1
+93	1	0.0	1	1
+
+
+=== Second read: Adapter 8 ===
+
+Sequence: CTGTCTCTTATACACATCTGACGCTGCCGACGA; Type: regular 3'; Length: 33; Trimmed: 40009 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30-33 bp: 3
+
+Bases preceding removed adapters:
+  A: 8.9%
+  C: 42.2%
+  G: 29.9%
+  T: 18.9%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+18	1	0.0	1	0 0 1
+19	4	0.0	1	0 3 1
+20	758	0.0	2	731 23 4
+21	166	0.0	2	125 34 7
+22	954	0.0	2	910 30 14
+23	136	0.0	2	114 17 5
+24	597	0.0	2	547 43 7
+25	520	0.0	2	480 31 9
+26	348	0.0	2	328 19 1
+27	505	0.0	2	477 18 10
+28	831	0.0	2	776 47 8
+29	564	0.0	2	531 20 8 5
+30	132	0.0	3	53 71 8
+31	1040	0.0	3	969 63 7 1
+32	621	0.0	3	581 32 8
+33	135	0.0	3	69 56 7 3
+34	963	0.0	3	905 46 9 3
+35	80	0.0	3	63 13 4
+36	529	0.0	3	483 32 11 3
+37	572	0.0	3	519 37 10 6
+38	401	0.0	3	368 26 4 3
+39	506	0.0	3	480 22 3 1
+40	498	0.0	3	452 37 2 7
+41	650	0.0	3	593 32 19 6
+42	606	0.0	3	555 46 2 3
+43	727	0.0	3	675 44 4 4
+44	366	0.0	3	331 30 1 4
+45	637	0.0	3	604 21 8 4
+46	658	0.0	3	605 33 14 6
+47	337	0.0	3	311 21 3 2
+48	518	0.0	3	463 40 9 6
+49	629	0.0	3	592 31 2 4
+50	635	0.0	3	599 26 7 3
+51	264	0.0	3	241 20 3
+52	644	0.0	3	613 21 9 1
+53	573	0.0	3	530 35 8
+54	845	0.0	3	818 22 4 1
+55	404	0.0	3	371 29 2 2
+56	525	0.0	3	485 31 5 4
+57	744	0.0	3	692 41 7 4
+58	384	0.0	3	362 20 2
+59	645	0.0	3	618 23 2 2
+60	389	0.0	3	361 25 1 2
+61	498	0.0	3	463 28 5 2
+62	542	0.0	3	508 26 4 4
+63	651	0.0	3	606 38 5 2
+64	758	0.0	3	727 30 0 1
+65	594	0.0	3	548 32 8 6
+66	449	0.0	3	424 23 2
+67	439	0.0	3	418 18 2 1
+68	539	0.0	3	503 29 4 3
+69	548	0.0	3	513 31 2 2
+70	579	0.0	3	555 21 2 1
+71	355	0.0	3	325 27 1 2
+72	528	0.0	3	497 23 8
+73	512	0.0	3	479 24 6 3
+74	582	0.0	3	538 38 4 2
+75	553	0.0	3	519 27 6 1
+76	498	0.0	3	475 17 4 2
+77	499	0.0	3	457 37 5
+78	662	0.0	3	634 22 4 2
+79	761	0.0	3	726 26 5 4
+80	522	0.0	3	485 23 7 7
+81	37	0.0	3	28 8 1
+82	287	0.0	3	280 6 0 1
+83	368	0.0	3	357 10 1
+84	389	0.0	3	376 11 2
+85	463	0.0	3	441 17 2 3
+86	389	0.0	3	373 14 2
+87	309	0.0	3	286 19 3 1
+88	266	0.0	3	245 17 2 2
+89	234	0.0	3	221 11 1 1
+90	256	0.0	3	243 9 2 2
+91	242	0.0	3	225 9 4 4
+92	326	0.0	3	295 25 4 2
+93	1561	0.0	3	1426 108 17 10
+94	355	0.0	3	330 21 3 1
+95	274	0.0	3	259 10 3 2
+96	160	0.0	3	150 8 1 1
+97	111	0.0	3	104 5 2
+98	100	0.0	3	95 5
+99	84	0.0	3	78 5 0 1
+100	102	0.0	3	93 6 1 2
+101	71	0.0	3	65 2 2 2
+102	89	0.0	3	84 4 1
+103	139	0.0	3	138 1
+104	50	0.0	3	48 2
+105	51	0.0	3	45 2 3 1
+106	38	0.0	3	31 6 1
+107	36	0.0	3	34 1 1
+108	41	0.0	3	40 0 1
+109	15	0.0	3	13 2
+110	7	0.0	3	6 0 1
+111	4	0.0	3	3 0 0 1
+112	6	0.0	3	6
+113	7	0.0	3	7
+114	4	0.0	3	3 1
+115	2	0.0	3	2
+116	2	0.0	3	2
+117	3	0.0	3	2 0 1
+119	1	0.0	3	1
+120	3	0.0	3	0 2 0 1
+122	4	0.0	3	3 0 1
+123	2	0.0	3	0 1 1
+124	1	0.0	3	1
+126	1	0.0	3	1
+127	3	0.0	3	3
+128	2	0.0	3	1 0 1
+131	1	0.0	3	0 1
+134	2	0.0	3	2
+139	1	0.0	3	0 1
+
+
+=== Second read: Adapter 9 ===
+
+Sequence: CTGTCTCTTATACACATCTCCGAGCCCACGAGAC; Type: regular 3'; Length: 34; Trimmed: 2 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30-34 bp: 3
+
+Bases preceding removed adapters:
+  A: 0.0%
+  C: 50.0%
+  G: 0.0%
+  T: 50.0%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+18	2	0.0	1	0 0 2
+
+
+=== Second read: Adapter 10 ===
+
+Sequence: AGATGTGTATAAGAGACAG; Type: regular 5'; Length: 19; Trimmed: 1091 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	944	1967.6	0	944
+4	97	491.9	0	97
+5	30	123.0	0	30
+6	14	30.7	0	14
+7	3	7.7	0	3
+8	1	1.9	0	1
+13	2	0.0	1	1 1
+
+
+=== Second read: Adapter 11 ===
+
+Sequence: TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG; Type: regular 5'; Length: 33; Trimmed: 1 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30-33 bp: 3
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+24	1	0.0	2	1
+
+
+=== Second read: Adapter 12 ===
+
+Sequence: GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG; Type: regular 5'; Length: 34; Trimmed: 1 times.
+
+No. of allowed errors:
+0-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30-34 bp: 3
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+26	1	0.0	2	1
+Started analysis of example.r1.0.trimmed.fastq
+Approx 5% complete for example.r1.0.trimmed.fastq
+Approx 10% complete for example.r1.0.trimmed.fastq
+Approx 15% complete for example.r1.0.trimmed.fastq
+Approx 20% complete for example.r1.0.trimmed.fastq
+Approx 25% complete for example.r1.0.trimmed.fastq
+Approx 30% complete for example.r1.0.trimmed.fastq
+Approx 35% complete for example.r1.0.trimmed.fastq
+Approx 40% complete for example.r1.0.trimmed.fastq
+Approx 45% complete for example.r1.0.trimmed.fastq
+Approx 50% complete for example.r1.0.trimmed.fastq
+Approx 55% complete for example.r1.0.trimmed.fastq
+Approx 60% complete for example.r1.0.trimmed.fastq
+Approx 65% complete for example.r1.0.trimmed.fastq
+Approx 70% complete for example.r1.0.trimmed.fastq
+Approx 75% complete for example.r1.0.trimmed.fastq
+Approx 80% complete for example.r1.0.trimmed.fastq
+Approx 85% complete for example.r1.0.trimmed.fastq
+Approx 90% complete for example.r1.0.trimmed.fastq
+Approx 95% complete for example.r1.0.trimmed.fastq
+Analysis complete for example.r1.0.trimmed.fastq
+Started analysis of example.r2.0.trimmed.fastq
+Approx 5% complete for example.r2.0.trimmed.fastq
+Approx 10% complete for example.r2.0.trimmed.fastq
+Approx 15% complete for example.r2.0.trimmed.fastq
+Approx 20% complete for example.r2.0.trimmed.fastq
+Approx 25% complete for example.r2.0.trimmed.fastq
+Approx 30% complete for example.r2.0.trimmed.fastq
+Approx 35% complete for example.r2.0.trimmed.fastq
+Approx 40% complete for example.r2.0.trimmed.fastq
+Approx 45% complete for example.r2.0.trimmed.fastq
+Approx 50% complete for example.r2.0.trimmed.fastq
+Approx 55% complete for example.r2.0.trimmed.fastq
+Approx 60% complete for example.r2.0.trimmed.fastq
+Approx 65% complete for example.r2.0.trimmed.fastq
+Approx 70% complete for example.r2.0.trimmed.fastq
+Approx 75% complete for example.r2.0.trimmed.fastq
+Approx 80% complete for example.r2.0.trimmed.fastq
+Approx 85% complete for example.r2.0.trimmed.fastq
+Approx 90% complete for example.r2.0.trimmed.fastq
+Approx 95% complete for example.r2.0.trimmed.fastq
+Analysis complete for example.r2.0.trimmed.fastq
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+[M::process] read 251384 sequences (32665074 bp)...
+[M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (0, 102129, 1, 2)
+[M::mem_pestat] skip orientation FF as there are not enough pairs
+[M::mem_pestat] analyzing insert size distribution for orientation FR...
+[M::mem_pestat] (25, 50, 75) percentile: (116, 182, 280)
+[M::mem_pestat] low and high boundaries for computing mean and std.dev: (1, 608)
+[M::mem_pestat] mean and std.dev: (208.48, 114.87)
+[M::mem_pestat] low and high boundaries for proper pairs: (1, 772)
+[M::mem_pestat] skip orientation RF as there are not enough pairs
+[M::mem_pestat] skip orientation RR as there are not enough pairs
+[M::mem_process_seqs] Processed 251384 reads in 25.928 CPU sec, 3.354 real sec
+[main] Version: 0.7.17-r1188
+[main] CMD: bwa mem -t 8 -R @RG\tID:RUN0\tSM:example\tPL:illumina\tLB:example\tPU:RUN0 ./sh/../fasta/yeast_reference.fa example/seqs/example.r1.0.trimmed.fastq example/seqs/example.r2.0.trimmed.fastq
+[main] Real time: 10.129 sec; CPU: 26.674 sec
+17:17:48.819 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+[Sun Mar 15 17:17:48 CET 2020] SortSam  --INPUT example/bams/example.0.bam --OUTPUT example/bams/example.0.sort.bam --SORT_ORDER coordinate --VALIDATION_STRINGENCY SILENT  --VERBOSITY INFO --QUIET false --COMPRESSION_LEVEL 1 --MAX_RECORDS_IN_RAM 500000 --CREATE_INDEX false --CREATE_MD5_FILE false --GA4GH_CLIENT_SECRETS client_secrets.json --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+[Sun Mar 15 17:17:48 CET 2020] Executing as shli@spinoza.embl.de on Linux 3.10.0-693.5.2.el7.x86_64 amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_181-b13; Deflater: Intel; Inflater: Intel; Picard version: Version:4.0.0.0
+INFO	2020-03-15 17:17:50	SortSam	Finished reading inputs, merging and writing to output now.
+[Sun Mar 15 17:17:51 CET 2020] picard.sam.SortSam done. Elapsed time: 0.04 minutes.
+Runtime.totalMemory()=1701314560
+Tool returned:
+0
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar SortSam -I example/bams/example.0.bam -O example/bams/example.0.sort.bam -SO coordinate --VALIDATION_STRINGENCY SILENT
+17:17:55.591 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+[Sun Mar 15 17:17:55 CET 2020] MarkDuplicates  --INPUT example/bams/example.0.sort.bam --OUTPUT example/bams/example.sort.dedup.bam --METRICS_FILE example/bams/example.metrics --VALIDATION_STRINGENCY SILENT  --MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP 50000 --MAX_FILE_HANDLES_FOR_READ_ENDS_MAP 8000 --SORTING_COLLECTION_SIZE_RATIO 0.25 --TAG_DUPLICATE_SET_MEMBERS false --REMOVE_SEQUENCING_DUPLICATES false --TAGGING_POLICY DontTag --CLEAR_DT true --ADD_PG_TAG_TO_READS true --REMOVE_DUPLICATES false --ASSUME_SORTED false --DUPLICATE_SCORING_STRATEGY SUM_OF_BASE_QUALITIES --PROGRAM_RECORD_ID MarkDuplicates --PROGRAM_GROUP_NAME MarkDuplicates --READ_NAME_REGEX <optimized capture of last three ':' separated fields as numeric values> --OPTICAL_DUPLICATE_PIXEL_DISTANCE 100 --MAX_OPTICAL_DUPLICATE_SET_SIZE 300000 --VERBOSITY INFO --QUIET false --COMPRESSION_LEVEL 1 --MAX_RECORDS_IN_RAM 500000 --CREATE_INDEX false --CREATE_MD5_FILE false --GA4GH_CLIENT_SECRETS client_secrets.json --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+[Sun Mar 15 17:17:55 CET 2020] Executing as shli@spinoza.embl.de on Linux 3.10.0-693.5.2.el7.x86_64 amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_181-b13; Deflater: Intel; Inflater: Intel; Picard version: Version:4.0.0.0
+INFO	2020-03-15 17:17:55	MarkDuplicates	Start of doWork freeMemory: 1615061360; totalMemory: 1646788608; maxMemory: 28631367680
+INFO	2020-03-15 17:17:55	MarkDuplicates	Reading input file and constructing read end information.
+INFO	2020-03-15 17:17:55	MarkDuplicates	Will retain up to 103736839 data points before spilling to disk.
+INFO	2020-03-15 17:18:03	MarkDuplicates	Read 244875 records. 0 pairs never matched.
+INFO	2020-03-15 17:18:05	MarkDuplicates	After buildSortedReadEndLists freeMemory: 3041510040; totalMemory: 3932160000; maxMemory: 28631367680
+INFO	2020-03-15 17:18:05	MarkDuplicates	Will retain up to 894730240 duplicate indices before spilling to disk.
+INFO	2020-03-15 17:18:10	MarkDuplicates	Traversing read pair information and detecting duplicates.
+INFO	2020-03-15 17:18:10	MarkDuplicates	Traversing fragment information and detecting duplicates.
+INFO	2020-03-15 17:18:10	MarkDuplicates	Sorting list of duplicate records.
+INFO	2020-03-15 17:18:13	MarkDuplicates	After generateDuplicateIndexes freeMemory: 3898074752; totalMemory: 11090264064; maxMemory: 28631367680
+INFO	2020-03-15 17:18:13	MarkDuplicates	Marking 7856 records as duplicates.
+INFO	2020-03-15 17:18:13	MarkDuplicates	Found 38 optical duplicate clusters.
+INFO	2020-03-15 17:18:13	MarkDuplicates	Reads are assumed to be ordered by: coordinate
+INFO	2020-03-15 17:18:15	MarkDuplicates	Before output close freeMemory: 11329159152; totalMemory: 11379146752; maxMemory: 28631367680
+INFO	2020-03-15 17:18:15	MarkDuplicates	After output close freeMemory: 11339211736; totalMemory: 11379146752; maxMemory: 28631367680
+[Sun Mar 15 17:18:15 CET 2020] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 0.33 minutes.
+Runtime.totalMemory()=11379146752
+Tool returned:
+0
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar MarkDuplicates -I example/bams/example.0.sort.bam -O example/bams/example.sort.dedup.bam -M example/bams/example.metrics --VALIDATION_STRINGENCY SILENT
+17:18:21.703 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:18:21.876 INFO  HaplotypeCaller - ------------------------------------------------------------
+17:18:21.876 INFO  HaplotypeCaller - The Genome Analysis Toolkit (GATK) v4.0.0.0
+17:18:21.876 INFO  HaplotypeCaller - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:18:21.877 INFO  HaplotypeCaller - Executing as shli@spinoza.embl.de on Linux v3.10.0-693.5.2.el7.x86_64 amd64
+17:18:21.877 INFO  HaplotypeCaller - Java runtime: Java HotSpot(TM) 64-Bit Server VM v1.8.0_181-b13
+17:18:21.877 INFO  HaplotypeCaller - Start Date/Time: March 15, 2020 5:18:21 PM CET
+17:18:21.877 INFO  HaplotypeCaller - ------------------------------------------------------------
+17:18:21.877 INFO  HaplotypeCaller - ------------------------------------------------------------
+17:18:21.878 INFO  HaplotypeCaller - HTSJDK Version: 2.13.2
+17:18:21.878 INFO  HaplotypeCaller - Picard Version: 2.17.2
+17:18:21.878 INFO  HaplotypeCaller - HTSJDK Defaults.COMPRESSION_LEVEL : 1
+17:18:21.878 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:18:21.878 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:18:21.878 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:18:21.878 INFO  HaplotypeCaller - Deflater: IntelDeflater
+17:18:21.878 INFO  HaplotypeCaller - Inflater: IntelInflater
+17:18:21.878 INFO  HaplotypeCaller - GCS max retries/reopens: 20
+17:18:21.878 INFO  HaplotypeCaller - Using google-cloud-java patch 6d11bef1c81f885c26b2b56c8616b7a705171e4f from https://github.com/droazen/google-cloud-java/tree/dr_all_nio_fixes
+17:18:21.879 INFO  HaplotypeCaller - Initializing engine
+17:18:22.450 INFO  HaplotypeCaller - Done initializing engine
+17:18:22.458 INFO  HaplotypeCallerEngine - Currently, physical phasing is only available for diploid samples.
+17:18:23.489 INFO  NativeLibraryLoader - Loading libgkl_utils.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_utils.so
+17:18:23.492 INFO  PairHMM - OpenMP multi-threaded AVX-accelerated native PairHMM implementation is not supported
+17:18:23.493 WARN  PairHMM - ***WARNING: Machine does not have the AVX instruction set support needed for the accelerated AVX PairHmm. Falling back to the MUCH slower LOGLESS_CACHING implementation!
+17:18:23.558 INFO  ProgressMeter - Starting traversal
+17:18:23.559 INFO  ProgressMeter -        Current Locus  Elapsed Minutes     Regions Processed   Regions/Minute
+17:18:33.564 INFO  ProgressMeter -           chr4:87507              0.2                  5520          33103.4
+17:18:43.566 INFO  ProgressMeter -           chr6:15845              0.3                 13190          39556.2
+17:18:53.575 INFO  ProgressMeter -          chr9:205748              0.5                 21150          42277.5
+17:19:03.578 INFO  ProgressMeter -         chr12:248997              0.7                 28320          42460.9
+17:19:32.162 INFO  ProgressMeter -         chr12:460729              1.1                 29130          25477.0
+17:19:42.171 INFO  ProgressMeter -         chr14:323072              1.3                 36170          27606.5
+17:19:52.174 INFO  ProgressMeter -         chr16:453169              1.5                 43780          29643.2
+17:19:55.886 INFO  HaplotypeCaller - 39061 read(s) filtered by: ((((((((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter) AND NonZeroReferenceLengthAlignmentReadFilter) AND GoodCigarReadFilter) AND WellformedReadFilter)
+  39061 read(s) filtered by: (((((((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter) AND NonZeroReferenceLengthAlignmentReadFilter) AND GoodCigarReadFilter)
+      39061 read(s) filtered by: ((((((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter) AND NonZeroReferenceLengthAlignmentReadFilter)
+          39061 read(s) filtered by: (((((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter)
+              39061 read(s) filtered by: ((((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter)
+                  33552 read(s) filtered by: (((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter)
+                      33552 read(s) filtered by: ((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter)
+                          33552 read(s) filtered by: (MappingQualityReadFilter AND MappingQualityAvailableReadFilter)
+                              33552 read(s) filtered by: MappingQualityReadFilter 
+                  5509 read(s) filtered by: NotDuplicateReadFilter 
+
+17:19:55.886 INFO  ProgressMeter -           chrM:84876              1.5                 45994          29889.8
+17:19:55.887 INFO  ProgressMeter - Traversal complete. Processed 45994 total regions in 1.5 minutes.
+17:19:55.902 INFO  PairHMM - Total compute time in PairHMM computeLogLikelihoods() : 26.979302834000002
+17:19:55.902 INFO  SmithWatermanAligner - Total compute time in java Smith-Waterman : 4.43 sec
+17:19:55.902 INFO  HaplotypeCaller - Shutting down engine
+[March 15, 2020 5:19:55 PM CET] org.broadinstitute.hellbender.tools.walkers.haplotypecaller.HaplotypeCaller done. Elapsed time: 1.57 minutes.
+Runtime.totalMemory()=3319791616
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar HaplotypeCaller -R ./sh/../fasta/yeast_reference.fa -I example/bams/example.sort.dedup.bam -ploidy 1 -O example/recal/example.recal1.vcf
+17:20:00.575 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:20:00.727 INFO  BaseRecalibrator - ------------------------------------------------------------
+17:20:00.728 INFO  BaseRecalibrator - The Genome Analysis Toolkit (GATK) v4.0.0.0
+17:20:00.728 INFO  BaseRecalibrator - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:20:00.728 INFO  BaseRecalibrator - Executing as shli@spinoza.embl.de on Linux v3.10.0-693.5.2.el7.x86_64 amd64
+17:20:00.728 INFO  BaseRecalibrator - Java runtime: Java HotSpot(TM) 64-Bit Server VM v1.8.0_181-b13
+17:20:00.728 INFO  BaseRecalibrator - Start Date/Time: March 15, 2020 5:20:00 PM CET
+17:20:00.728 INFO  BaseRecalibrator - ------------------------------------------------------------
+17:20:00.728 INFO  BaseRecalibrator - ------------------------------------------------------------
+17:20:00.729 INFO  BaseRecalibrator - HTSJDK Version: 2.13.2
+17:20:00.729 INFO  BaseRecalibrator - Picard Version: 2.17.2
+17:20:00.729 INFO  BaseRecalibrator - HTSJDK Defaults.COMPRESSION_LEVEL : 1
+17:20:00.729 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:20:00.729 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:20:00.729 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:20:00.730 INFO  BaseRecalibrator - Deflater: IntelDeflater
+17:20:00.730 INFO  BaseRecalibrator - Inflater: IntelInflater
+17:20:00.730 INFO  BaseRecalibrator - GCS max retries/reopens: 20
+17:20:00.730 INFO  BaseRecalibrator - Using google-cloud-java patch 6d11bef1c81f885c26b2b56c8616b7a705171e4f from https://github.com/droazen/google-cloud-java/tree/dr_all_nio_fixes
+17:20:00.730 INFO  BaseRecalibrator - Initializing engine
+17:20:01.298 INFO  FeatureManager - Using codec VCFCodec to read file file:///g/steinmetz/project/yeast_crispr/github/CRISPReditEff/example/recal/example.recal1.vcf
+17:20:01.323 INFO  BaseRecalibrator - Done initializing engine
+17:20:01.329 INFO  BaseRecalibrationEngine - The covariates being used here: 
+17:20:01.329 INFO  BaseRecalibrationEngine - 	ReadGroupCovariate
+17:20:01.329 INFO  BaseRecalibrationEngine - 	QualityScoreCovariate
+17:20:01.329 INFO  BaseRecalibrationEngine - 	ContextCovariate
+17:20:01.329 INFO  BaseRecalibrationEngine - 	CycleCovariate
+17:20:01.333 INFO  ProgressMeter - Starting traversal
+17:20:01.333 INFO  ProgressMeter -        Current Locus  Elapsed Minutes       Reads Processed     Reads/Minute
+17:20:11.344 INFO  ProgressMeter -         chr15:999823              0.2                182000        1091127.1
+17:20:12.407 INFO  BaseRecalibrator - 45309 read(s) filtered by: ((((((MappingQualityNotZeroReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter) AND WellformedReadFilter)
+  45309 read(s) filtered by: (((((MappingQualityNotZeroReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter)
+      45309 read(s) filtered by: ((((MappingQualityNotZeroReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter)
+          39773 read(s) filtered by: (((MappingQualityNotZeroReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter)
+              39773 read(s) filtered by: ((MappingQualityNotZeroReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter)
+                  39773 read(s) filtered by: (MappingQualityNotZeroReadFilter AND MappingQualityAvailableReadFilter)
+                      39773 read(s) filtered by: MappingQualityNotZeroReadFilter 
+          5536 read(s) filtered by: NotDuplicateReadFilter 
+
+17:20:12.407 INFO  ProgressMeter -           chrM:79822              0.2                206466        1118652.7
+17:20:12.407 INFO  ProgressMeter - Traversal complete. Processed 206466 total reads in 0.2 minutes.
+17:20:12.469 INFO  BaseRecalibrator - Calculating quantized quality scores...
+17:20:12.486 INFO  BaseRecalibrator - Writing recalibration report...
+17:20:12.865 INFO  BaseRecalibrator - ...done!
+17:20:12.866 INFO  BaseRecalibrator - Shutting down engine
+[March 15, 2020 5:20:12 PM CET] org.broadinstitute.hellbender.tools.walkers.bqsr.BaseRecalibrator done. Elapsed time: 0.21 minutes.
+Runtime.totalMemory()=2469396480
+Tool returned:
+206466
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar BaseRecalibrator -R ./sh/../fasta/yeast_reference.fa -I example/bams/example.sort.dedup.bam --known-sites example/recal/example.recal1.vcf -O example/recal/example.recal1.table
+17:20:17.483 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:20:17.631 INFO  ApplyBQSR - ------------------------------------------------------------
+17:20:17.631 INFO  ApplyBQSR - The Genome Analysis Toolkit (GATK) v4.0.0.0
+17:20:17.631 INFO  ApplyBQSR - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:20:17.631 INFO  ApplyBQSR - Executing as shli@spinoza.embl.de on Linux v3.10.0-693.5.2.el7.x86_64 amd64
+17:20:17.632 INFO  ApplyBQSR - Java runtime: Java HotSpot(TM) 64-Bit Server VM v1.8.0_181-b13
+17:20:17.632 INFO  ApplyBQSR - Start Date/Time: March 15, 2020 5:20:17 PM CET
+17:20:17.632 INFO  ApplyBQSR - ------------------------------------------------------------
+17:20:17.632 INFO  ApplyBQSR - ------------------------------------------------------------
+17:20:17.632 INFO  ApplyBQSR - HTSJDK Version: 2.13.2
+17:20:17.633 INFO  ApplyBQSR - Picard Version: 2.17.2
+17:20:17.633 INFO  ApplyBQSR - HTSJDK Defaults.COMPRESSION_LEVEL : 1
+17:20:17.633 INFO  ApplyBQSR - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:20:17.633 INFO  ApplyBQSR - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:20:17.633 INFO  ApplyBQSR - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:20:17.633 INFO  ApplyBQSR - Deflater: IntelDeflater
+17:20:17.633 INFO  ApplyBQSR - Inflater: IntelInflater
+17:20:17.633 INFO  ApplyBQSR - GCS max retries/reopens: 20
+17:20:17.633 INFO  ApplyBQSR - Using google-cloud-java patch 6d11bef1c81f885c26b2b56c8616b7a705171e4f from https://github.com/droazen/google-cloud-java/tree/dr_all_nio_fixes
+17:20:17.633 INFO  ApplyBQSR - Initializing engine
+17:20:18.264 INFO  ApplyBQSR - Done initializing engine
+17:20:18.288 INFO  ProgressMeter - Starting traversal
+17:20:18.289 INFO  ProgressMeter -        Current Locus  Elapsed Minutes       Reads Processed     Reads/Minute
+17:20:26.732 INFO  ApplyBQSR - No reads filtered by: WellformedReadFilter
+17:20:26.734 INFO  ProgressMeter -             unmapped              0.1                251775        1789021.8
+17:20:26.734 INFO  ProgressMeter - Traversal complete. Processed 251775 total reads in 0.1 minutes.
+17:20:26.804 INFO  ApplyBQSR - Shutting down engine
+[March 15, 2020 5:20:26 PM CET] org.broadinstitute.hellbender.tools.walkers.bqsr.ApplyBQSR done. Elapsed time: 0.16 minutes.
+Runtime.totalMemory()=2388131840
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar ApplyBQSR -R ./sh/../fasta/yeast_reference.fa -I example/bams/example.sort.dedup.bam --bqsr-recal-file example/recal/example.recal1.table -O example/bams/example.sort.dedup.recal1.bam
+17:20:31.411 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:20:31.559 INFO  HaplotypeCaller - ------------------------------------------------------------
+17:20:31.559 INFO  HaplotypeCaller - The Genome Analysis Toolkit (GATK) v4.0.0.0
+17:20:31.559 INFO  HaplotypeCaller - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:20:31.560 INFO  HaplotypeCaller - Executing as shli@spinoza.embl.de on Linux v3.10.0-693.5.2.el7.x86_64 amd64
+17:20:31.560 INFO  HaplotypeCaller - Java runtime: Java HotSpot(TM) 64-Bit Server VM v1.8.0_181-b13
+17:20:31.560 INFO  HaplotypeCaller - Start Date/Time: March 15, 2020 5:20:31 PM CET
+17:20:31.560 INFO  HaplotypeCaller - ------------------------------------------------------------
+17:20:31.560 INFO  HaplotypeCaller - ------------------------------------------------------------
+17:20:31.561 INFO  HaplotypeCaller - HTSJDK Version: 2.13.2
+17:20:31.561 INFO  HaplotypeCaller - Picard Version: 2.17.2
+17:20:31.561 INFO  HaplotypeCaller - HTSJDK Defaults.COMPRESSION_LEVEL : 1
+17:20:31.561 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:20:31.561 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:20:31.561 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:20:31.561 INFO  HaplotypeCaller - Deflater: IntelDeflater
+17:20:31.561 INFO  HaplotypeCaller - Inflater: IntelInflater
+17:20:31.561 INFO  HaplotypeCaller - GCS max retries/reopens: 20
+17:20:31.562 INFO  HaplotypeCaller - Using google-cloud-java patch 6d11bef1c81f885c26b2b56c8616b7a705171e4f from https://github.com/droazen/google-cloud-java/tree/dr_all_nio_fixes
+17:20:31.562 INFO  HaplotypeCaller - Initializing engine
+17:20:32.162 INFO  HaplotypeCaller - Done initializing engine
+17:20:32.170 INFO  HaplotypeCallerEngine - Currently, physical phasing is only available for diploid samples.
+17:20:33.224 INFO  NativeLibraryLoader - Loading libgkl_utils.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_utils.so
+17:20:33.226 INFO  PairHMM - OpenMP multi-threaded AVX-accelerated native PairHMM implementation is not supported
+17:20:33.226 WARN  PairHMM - ***WARNING: Machine does not have the AVX instruction set support needed for the accelerated AVX PairHmm. Falling back to the MUCH slower LOGLESS_CACHING implementation!
+17:20:33.270 INFO  ProgressMeter - Starting traversal
+17:20:33.270 INFO  ProgressMeter -        Current Locus  Elapsed Minutes     Regions Processed   Regions/Minute
+17:20:43.285 INFO  ProgressMeter -           chr4:77143              0.2                  5510          33013.8
+17:20:53.291 INFO  ProgressMeter -          chr5:353341              0.3                 12330          36951.2
+17:21:03.307 INFO  ProgressMeter -          chr8:417559              0.5                 19910          39770.9
+17:21:13.311 INFO  ProgressMeter -         chr11:613730              0.7                 27280          40878.1
+17:21:29.793 INFO  ProgressMeter -         chr12:459953              0.9                 29250          31049.3
+17:21:42.200 INFO  ProgressMeter -         chr12:462229              1.1                 29260          25469.3
+17:21:52.214 INFO  ProgressMeter -         chr14:427031              1.3                 36710          27900.8
+17:22:02.219 INFO  ProgressMeter -         chr16:664568              1.5                 44720          30165.6
+17:22:04.951 INFO  HaplotypeCaller - 39061 read(s) filtered by: ((((((((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter) AND NonZeroReferenceLengthAlignmentReadFilter) AND GoodCigarReadFilter) AND WellformedReadFilter)
+  39061 read(s) filtered by: (((((((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter) AND NonZeroReferenceLengthAlignmentReadFilter) AND GoodCigarReadFilter)
+      39061 read(s) filtered by: ((((((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter) AND NonZeroReferenceLengthAlignmentReadFilter)
+          39061 read(s) filtered by: (((((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter)
+              39061 read(s) filtered by: ((((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter)
+                  33552 read(s) filtered by: (((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter)
+                      33552 read(s) filtered by: ((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter)
+                          33552 read(s) filtered by: (MappingQualityReadFilter AND MappingQualityAvailableReadFilter)
+                              33552 read(s) filtered by: MappingQualityReadFilter 
+                  5509 read(s) filtered by: NotDuplicateReadFilter 
+
+17:22:04.952 INFO  ProgressMeter -           chrM:84762              1.5                 46166          30212.7
+17:22:04.952 INFO  ProgressMeter - Traversal complete. Processed 46166 total regions in 1.5 minutes.
+17:22:04.965 INFO  PairHMM - Total compute time in PairHMM computeLogLikelihoods() : 25.915448995000002
+17:22:04.965 INFO  SmithWatermanAligner - Total compute time in java Smith-Waterman : 4.19 sec
+17:22:04.965 INFO  HaplotypeCaller - Shutting down engine
+[March 15, 2020 5:22:04 PM CET] org.broadinstitute.hellbender.tools.walkers.haplotypecaller.HaplotypeCaller done. Elapsed time: 1.56 minutes.
+Runtime.totalMemory()=3194486784
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar HaplotypeCaller -R ./sh/../fasta/yeast_reference.fa -I example/bams/example.sort.dedup.recal1.bam -ploidy 1 -O example/recal/example.recal2.vcf
+17:22:09.700 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:22:09.852 INFO  BaseRecalibrator - ------------------------------------------------------------
+17:22:09.853 INFO  BaseRecalibrator - The Genome Analysis Toolkit (GATK) v4.0.0.0
+17:22:09.853 INFO  BaseRecalibrator - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:22:09.853 INFO  BaseRecalibrator - Executing as shli@spinoza.embl.de on Linux v3.10.0-693.5.2.el7.x86_64 amd64
+17:22:09.853 INFO  BaseRecalibrator - Java runtime: Java HotSpot(TM) 64-Bit Server VM v1.8.0_181-b13
+17:22:09.854 INFO  BaseRecalibrator - Start Date/Time: March 15, 2020 5:22:09 PM CET
+17:22:09.854 INFO  BaseRecalibrator - ------------------------------------------------------------
+17:22:09.854 INFO  BaseRecalibrator - ------------------------------------------------------------
+17:22:09.854 INFO  BaseRecalibrator - HTSJDK Version: 2.13.2
+17:22:09.854 INFO  BaseRecalibrator - Picard Version: 2.17.2
+17:22:09.854 INFO  BaseRecalibrator - HTSJDK Defaults.COMPRESSION_LEVEL : 1
+17:22:09.855 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:22:09.855 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:22:09.855 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:22:09.855 INFO  BaseRecalibrator - Deflater: IntelDeflater
+17:22:09.855 INFO  BaseRecalibrator - Inflater: IntelInflater
+17:22:09.855 INFO  BaseRecalibrator - GCS max retries/reopens: 20
+17:22:09.855 INFO  BaseRecalibrator - Using google-cloud-java patch 6d11bef1c81f885c26b2b56c8616b7a705171e4f from https://github.com/droazen/google-cloud-java/tree/dr_all_nio_fixes
+17:22:09.855 INFO  BaseRecalibrator - Initializing engine
+17:22:10.448 INFO  FeatureManager - Using codec VCFCodec to read file file:///g/steinmetz/project/yeast_crispr/github/CRISPReditEff/example/recal/example.recal2.vcf
+17:22:10.474 INFO  BaseRecalibrator - Done initializing engine
+17:22:10.480 INFO  BaseRecalibrationEngine - The covariates being used here: 
+17:22:10.480 INFO  BaseRecalibrationEngine - 	ReadGroupCovariate
+17:22:10.480 INFO  BaseRecalibrationEngine - 	QualityScoreCovariate
+17:22:10.480 INFO  BaseRecalibrationEngine - 	ContextCovariate
+17:22:10.480 INFO  BaseRecalibrationEngine - 	CycleCovariate
+17:22:10.484 INFO  ProgressMeter - Starting traversal
+17:22:10.484 INFO  ProgressMeter -        Current Locus  Elapsed Minutes       Reads Processed     Reads/Minute
+17:22:20.501 INFO  ProgressMeter -         chr15:999823              0.2                182000        1090364.5
+17:22:21.714 INFO  BaseRecalibrator - 45309 read(s) filtered by: ((((((MappingQualityNotZeroReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter) AND WellformedReadFilter)
+  45309 read(s) filtered by: (((((MappingQualityNotZeroReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter)
+      45309 read(s) filtered by: ((((MappingQualityNotZeroReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter)
+          39773 read(s) filtered by: (((MappingQualityNotZeroReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter)
+              39773 read(s) filtered by: ((MappingQualityNotZeroReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter)
+                  39773 read(s) filtered by: (MappingQualityNotZeroReadFilter AND MappingQualityAvailableReadFilter)
+                      39773 read(s) filtered by: MappingQualityNotZeroReadFilter 
+          5536 read(s) filtered by: NotDuplicateReadFilter 
+
+17:22:21.715 INFO  ProgressMeter -           chrM:79822              0.2                206466        1103014.9
+17:22:21.715 INFO  ProgressMeter - Traversal complete. Processed 206466 total reads in 0.2 minutes.
+17:22:21.867 INFO  BaseRecalibrator - Calculating quantized quality scores...
+17:22:21.888 INFO  BaseRecalibrator - Writing recalibration report...
+17:22:23.073 INFO  BaseRecalibrator - ...done!
+17:22:23.074 INFO  BaseRecalibrator - Shutting down engine
+[March 15, 2020 5:22:23 PM CET] org.broadinstitute.hellbender.tools.walkers.bqsr.BaseRecalibrator done. Elapsed time: 0.22 minutes.
+Runtime.totalMemory()=2484076544
+Tool returned:
+206466
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar BaseRecalibrator -R ./sh/../fasta/yeast_reference.fa -I example/bams/example.sort.dedup.recal1.bam --known-sites example/recal/example.recal2.vcf -O example/recal/example.recal2.table
+17:22:27.628 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:22:27.773 INFO  ApplyBQSR - ------------------------------------------------------------
+17:22:27.773 INFO  ApplyBQSR - The Genome Analysis Toolkit (GATK) v4.0.0.0
+17:22:27.773 INFO  ApplyBQSR - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:22:27.774 INFO  ApplyBQSR - Executing as shli@spinoza.embl.de on Linux v3.10.0-693.5.2.el7.x86_64 amd64
+17:22:27.774 INFO  ApplyBQSR - Java runtime: Java HotSpot(TM) 64-Bit Server VM v1.8.0_181-b13
+17:22:27.774 INFO  ApplyBQSR - Start Date/Time: March 15, 2020 5:22:27 PM CET
+17:22:27.774 INFO  ApplyBQSR - ------------------------------------------------------------
+17:22:27.774 INFO  ApplyBQSR - ------------------------------------------------------------
+17:22:27.775 INFO  ApplyBQSR - HTSJDK Version: 2.13.2
+17:22:27.775 INFO  ApplyBQSR - Picard Version: 2.17.2
+17:22:27.775 INFO  ApplyBQSR - HTSJDK Defaults.COMPRESSION_LEVEL : 1
+17:22:27.775 INFO  ApplyBQSR - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:22:27.775 INFO  ApplyBQSR - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:22:27.775 INFO  ApplyBQSR - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:22:27.775 INFO  ApplyBQSR - Deflater: IntelDeflater
+17:22:27.775 INFO  ApplyBQSR - Inflater: IntelInflater
+17:22:27.776 INFO  ApplyBQSR - GCS max retries/reopens: 20
+17:22:27.776 INFO  ApplyBQSR - Using google-cloud-java patch 6d11bef1c81f885c26b2b56c8616b7a705171e4f from https://github.com/droazen/google-cloud-java/tree/dr_all_nio_fixes
+17:22:27.776 INFO  ApplyBQSR - Initializing engine
+17:22:28.373 INFO  ApplyBQSR - Done initializing engine
+17:22:28.395 INFO  ProgressMeter - Starting traversal
+17:22:28.396 INFO  ProgressMeter -        Current Locus  Elapsed Minutes       Reads Processed     Reads/Minute
+17:22:38.426 INFO  ProgressMeter -           chrM:57843              0.2                242000        1447801.4
+17:22:38.670 INFO  ApplyBQSR - No reads filtered by: WellformedReadFilter
+17:22:38.670 INFO  ProgressMeter -             unmapped              0.2                251775        1470362.1
+17:22:38.670 INFO  ProgressMeter - Traversal complete. Processed 251775 total reads in 0.2 minutes.
+17:22:38.745 INFO  ApplyBQSR - Shutting down engine
+[March 15, 2020 5:22:38 PM CET] org.broadinstitute.hellbender.tools.walkers.bqsr.ApplyBQSR done. Elapsed time: 0.19 minutes.
+Runtime.totalMemory()=2422210560
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar ApplyBQSR -R ./sh/../fasta/yeast_reference.fa -I example/bams/example.sort.dedup.recal1.bam --bqsr-recal-file example/recal/example.recal2.table -O example/bams/example.sort.dedup.recal2.bam
+17:22:43.155 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:22:43.302 INFO  AnalyzeCovariates - ------------------------------------------------------------
+17:22:43.302 INFO  AnalyzeCovariates - The Genome Analysis Toolkit (GATK) v4.0.0.0
+17:22:43.302 INFO  AnalyzeCovariates - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:22:43.302 INFO  AnalyzeCovariates - Executing as shli@spinoza.embl.de on Linux v3.10.0-693.5.2.el7.x86_64 amd64
+17:22:43.303 INFO  AnalyzeCovariates - Java runtime: Java HotSpot(TM) 64-Bit Server VM v1.8.0_181-b13
+17:22:43.303 INFO  AnalyzeCovariates - Start Date/Time: March 15, 2020 5:22:43 PM CET
+17:22:43.303 INFO  AnalyzeCovariates - ------------------------------------------------------------
+17:22:43.303 INFO  AnalyzeCovariates - ------------------------------------------------------------
+17:22:43.304 INFO  AnalyzeCovariates - HTSJDK Version: 2.13.2
+17:22:43.304 INFO  AnalyzeCovariates - Picard Version: 2.17.2
+17:22:43.304 INFO  AnalyzeCovariates - HTSJDK Defaults.COMPRESSION_LEVEL : 1
+17:22:43.304 INFO  AnalyzeCovariates - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:22:43.304 INFO  AnalyzeCovariates - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:22:43.304 INFO  AnalyzeCovariates - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:22:43.304 INFO  AnalyzeCovariates - Deflater: IntelDeflater
+17:22:43.304 INFO  AnalyzeCovariates - Inflater: IntelInflater
+17:22:43.304 INFO  AnalyzeCovariates - GCS max retries/reopens: 20
+17:22:43.304 INFO  AnalyzeCovariates - Using google-cloud-java patch 6d11bef1c81f885c26b2b56c8616b7a705171e4f from https://github.com/droazen/google-cloud-java/tree/dr_all_nio_fixes
+17:22:43.304 INFO  AnalyzeCovariates - Initializing engine
+17:22:43.304 INFO  AnalyzeCovariates - Done initializing engine
+17:22:43.942 INFO  AnalyzeCovariates - Generating csv file '/tmp/shli/AnalyzeCovariates241735148139844956.csv'
+17:22:44.083 INFO  AnalyzeCovariates - Generating plots file 'example/recal/example.BQSR.pdf'
+17:22:49.038 INFO  AnalyzeCovariates - Shutting down engine
+[March 15, 2020 5:22:49 PM CET] org.broadinstitute.hellbender.tools.walkers.bqsr.AnalyzeCovariates done. Elapsed time: 0.10 minutes.
+Runtime.totalMemory()=1595932672
+Tool returned:
+Optional.empty
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar AnalyzeCovariates -before example/recal/example.recal1.table -after example/recal/example.recal2.table -plots example/recal/example.BQSR.pdf
+chr15
+START searching for construct reads...
+Processed 0 lines.
+Processed 100000 lines.
+Processed 200000 lines.
+Start filtering SAM file
+Processed 0 lines.
+Processed 100000 lines.
+Processed 200000 lines.
+In total, 6 pairs are potentially from construct; 6 pairs are overlapping the target site.
+17:23:10.586 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:23:10.734 INFO  HaplotypeCaller - ------------------------------------------------------------
+17:23:10.734 INFO  HaplotypeCaller - The Genome Analysis Toolkit (GATK) v4.0.0.0
+17:23:10.734 INFO  HaplotypeCaller - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:23:10.734 INFO  HaplotypeCaller - Executing as shli@spinoza.embl.de on Linux v3.10.0-693.5.2.el7.x86_64 amd64
+17:23:10.734 INFO  HaplotypeCaller - Java runtime: Java HotSpot(TM) 64-Bit Server VM v1.8.0_181-b13
+17:23:10.734 INFO  HaplotypeCaller - Start Date/Time: March 15, 2020 5:23:10 PM CET
+17:23:10.735 INFO  HaplotypeCaller - ------------------------------------------------------------
+17:23:10.735 INFO  HaplotypeCaller - ------------------------------------------------------------
+17:23:10.735 INFO  HaplotypeCaller - HTSJDK Version: 2.13.2
+17:23:10.735 INFO  HaplotypeCaller - Picard Version: 2.17.2
+17:23:10.735 INFO  HaplotypeCaller - HTSJDK Defaults.COMPRESSION_LEVEL : 1
+17:23:10.735 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:23:10.736 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:23:10.736 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:23:10.736 INFO  HaplotypeCaller - Deflater: IntelDeflater
+17:23:10.736 INFO  HaplotypeCaller - Inflater: IntelInflater
+17:23:10.736 INFO  HaplotypeCaller - GCS max retries/reopens: 20
+17:23:10.736 INFO  HaplotypeCaller - Using google-cloud-java patch 6d11bef1c81f885c26b2b56c8616b7a705171e4f from https://github.com/droazen/google-cloud-java/tree/dr_all_nio_fixes
+17:23:10.736 INFO  HaplotypeCaller - Initializing engine
+17:23:11.313 INFO  IntervalArgumentCollection - Processing 109 bp from intervals
+17:23:11.323 INFO  HaplotypeCaller - Done initializing engine
+17:23:11.330 INFO  HaplotypeCallerEngine - Currently, physical phasing is only available for diploid samples.
+17:23:11.330 INFO  HaplotypeCallerEngine - Standard Emitting and Calling confidence set to 0.0 for reference-model confidence output
+17:23:11.330 INFO  HaplotypeCallerEngine - All sites annotated with PLs forced to true for reference-model confidence output
+17:23:12.378 INFO  NativeLibraryLoader - Loading libgkl_utils.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_utils.so
+17:23:12.380 INFO  PairHMM - OpenMP multi-threaded AVX-accelerated native PairHMM implementation is not supported
+17:23:12.380 WARN  PairHMM - ***WARNING: Machine does not have the AVX instruction set support needed for the accelerated AVX PairHmm. Falling back to the MUCH slower LOGLESS_CACHING implementation!
+17:23:12.438 INFO  ProgressMeter - Starting traversal
+17:23:12.438 INFO  ProgressMeter -        Current Locus  Elapsed Minutes     Regions Processed   Regions/Minute
+17:23:13.147 INFO  HaplotypeCaller - No reads filtered by: ((((((((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter) AND NonZeroReferenceLengthAlignmentReadFilter) AND GoodCigarReadFilter) AND WellformedReadFilter)
+17:23:13.148 INFO  ProgressMeter -             unmapped              0.0                     3            253.5
+17:23:13.148 INFO  ProgressMeter - Traversal complete. Processed 3 total regions in 0.0 minutes.
+17:23:13.153 INFO  PairHMM - Total compute time in PairHMM computeLogLikelihoods() : 0.013155677000000001
+17:23:13.153 INFO  SmithWatermanAligner - Total compute time in java Smith-Waterman : 0.03 sec
+17:23:13.153 INFO  HaplotypeCaller - Shutting down engine
+[March 15, 2020 5:23:13 PM CET] org.broadinstitute.hellbender.tools.walkers.haplotypecaller.HaplotypeCaller done. Elapsed time: 0.04 minutes.
+Runtime.totalMemory()=2064121856
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar HaplotypeCaller -R ./sh/../fasta/yeast_reference.fa -I example/bams/example.clean.bam -ploidy 1 -O example/gVCF/example.vcf -ERC BP_RESOLUTION -L chr15:624876-624984
+17:23:17.789 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:23:17.934 INFO  GenotypeGVCFs - ------------------------------------------------------------
+17:23:17.934 INFO  GenotypeGVCFs - The Genome Analysis Toolkit (GATK) v4.0.0.0
+17:23:17.934 INFO  GenotypeGVCFs - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:23:17.934 INFO  GenotypeGVCFs - Executing as shli@spinoza.embl.de on Linux v3.10.0-693.5.2.el7.x86_64 amd64
+17:23:17.935 INFO  GenotypeGVCFs - Java runtime: Java HotSpot(TM) 64-Bit Server VM v1.8.0_181-b13
+17:23:17.935 INFO  GenotypeGVCFs - Start Date/Time: March 15, 2020 5:23:17 PM CET
+17:23:17.935 INFO  GenotypeGVCFs - ------------------------------------------------------------
+17:23:17.935 INFO  GenotypeGVCFs - ------------------------------------------------------------
+17:23:17.936 INFO  GenotypeGVCFs - HTSJDK Version: 2.13.2
+17:23:17.936 INFO  GenotypeGVCFs - Picard Version: 2.17.2
+17:23:17.936 INFO  GenotypeGVCFs - HTSJDK Defaults.COMPRESSION_LEVEL : 1
+17:23:17.936 INFO  GenotypeGVCFs - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:23:17.936 INFO  GenotypeGVCFs - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:23:17.936 INFO  GenotypeGVCFs - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:23:17.936 INFO  GenotypeGVCFs - Deflater: IntelDeflater
+17:23:17.936 INFO  GenotypeGVCFs - Inflater: IntelInflater
+17:23:17.936 INFO  GenotypeGVCFs - GCS max retries/reopens: 20
+17:23:17.936 INFO  GenotypeGVCFs - Using google-cloud-java patch 6d11bef1c81f885c26b2b56c8616b7a705171e4f from https://github.com/droazen/google-cloud-java/tree/dr_all_nio_fixes
+17:23:17.936 INFO  GenotypeGVCFs - Initializing engine
+17:23:18.594 INFO  FeatureManager - Using codec VCFCodec to read file file:///g/steinmetz/project/yeast_crispr/github/CRISPReditEff/example/gVCF/example.vcf
+17:23:18.625 INFO  GenotypeGVCFs - Done initializing engine
+17:23:19.680 INFO  ProgressMeter - Starting traversal
+17:23:19.681 INFO  ProgressMeter -        Current Locus  Elapsed Minutes    Variants Processed  Variants/Minute
+17:23:19.733 WARN  ReferenceConfidenceVariantContextMerger - Detected invalid annotations: When trying to merge variant contexts at location chr15:624930 the annotation MLEAC=[1, 0] was not a numerical value and was ignored
+17:23:19.806 INFO  ProgressMeter -             unmapped              0.0                   109          52320.0
+17:23:19.806 INFO  ProgressMeter - Traversal complete. Processed 109 total variants in 0.0 minutes.
+17:23:19.811 INFO  GenotypeGVCFs - Shutting down engine
+[March 15, 2020 5:23:19 PM CET] org.broadinstitute.hellbender.tools.walkers.GenotypeGVCFs done. Elapsed time: 0.03 minutes.
+Runtime.totalMemory()=1976041472
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar GenotypeGVCFs -R ./sh/../fasta/yeast_reference.fa -V example/gVCF/example.vcf -O example/VCF/example.vcf
+17:23:24.359 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:23:24.505 INFO  HaplotypeCaller - ------------------------------------------------------------
+17:23:24.505 INFO  HaplotypeCaller - The Genome Analysis Toolkit (GATK) v4.0.0.0
+17:23:24.505 INFO  HaplotypeCaller - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:23:24.505 INFO  HaplotypeCaller - Executing as shli@spinoza.embl.de on Linux v3.10.0-693.5.2.el7.x86_64 amd64
+17:23:24.505 INFO  HaplotypeCaller - Java runtime: Java HotSpot(TM) 64-Bit Server VM v1.8.0_181-b13
+17:23:24.506 INFO  HaplotypeCaller - Start Date/Time: March 15, 2020 5:23:24 PM CET
+17:23:24.506 INFO  HaplotypeCaller - ------------------------------------------------------------
+17:23:24.506 INFO  HaplotypeCaller - ------------------------------------------------------------
+17:23:24.506 INFO  HaplotypeCaller - HTSJDK Version: 2.13.2
+17:23:24.506 INFO  HaplotypeCaller - Picard Version: 2.17.2
+17:23:24.507 INFO  HaplotypeCaller - HTSJDK Defaults.COMPRESSION_LEVEL : 1
+17:23:24.507 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:23:24.507 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:23:24.507 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:23:24.507 INFO  HaplotypeCaller - Deflater: IntelDeflater
+17:23:24.507 INFO  HaplotypeCaller - Inflater: IntelInflater
+17:23:24.507 INFO  HaplotypeCaller - GCS max retries/reopens: 20
+17:23:24.507 INFO  HaplotypeCaller - Using google-cloud-java patch 6d11bef1c81f885c26b2b56c8616b7a705171e4f from https://github.com/droazen/google-cloud-java/tree/dr_all_nio_fixes
+17:23:24.507 INFO  HaplotypeCaller - Initializing engine
+17:23:25.101 INFO  IntervalArgumentCollection - Processing 509 bp from intervals
+17:23:25.111 INFO  HaplotypeCaller - Done initializing engine
+17:23:25.118 INFO  HaplotypeCallerEngine - Currently, physical phasing is only available for diploid samples.
+17:23:25.118 INFO  HaplotypeCallerEngine - Standard Emitting and Calling confidence set to 0.0 for reference-model confidence output
+17:23:25.118 INFO  HaplotypeCallerEngine - All sites annotated with PLs forced to true for reference-model confidence output
+17:23:26.239 INFO  NativeLibraryLoader - Loading libgkl_utils.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_utils.so
+17:23:26.242 INFO  PairHMM - OpenMP multi-threaded AVX-accelerated native PairHMM implementation is not supported
+17:23:26.242 WARN  PairHMM - ***WARNING: Machine does not have the AVX instruction set support needed for the accelerated AVX PairHmm. Falling back to the MUCH slower LOGLESS_CACHING implementation!
+17:23:26.282 INFO  ProgressMeter - Starting traversal
+17:23:26.283 INFO  ProgressMeter -        Current Locus  Elapsed Minutes     Regions Processed   Regions/Minute
+17:23:27.016 INFO  HaplotypeCaller - No reads filtered by: ((((((((MappingQualityReadFilter AND MappingQualityAvailableReadFilter) AND MappedReadFilter) AND NotSecondaryAlignmentReadFilter) AND NotDuplicateReadFilter) AND PassesVendorQualityCheckReadFilter) AND NonZeroReferenceLengthAlignmentReadFilter) AND GoodCigarReadFilter) AND WellformedReadFilter)
+17:23:27.017 INFO  ProgressMeter -             unmapped              0.0                     3            245.2
+17:23:27.017 INFO  ProgressMeter - Traversal complete. Processed 3 total regions in 0.0 minutes.
+17:23:27.022 INFO  PairHMM - Total compute time in PairHMM computeLogLikelihoods() : 0.013952551
+17:23:27.023 INFO  SmithWatermanAligner - Total compute time in java Smith-Waterman : 0.03 sec
+17:23:27.023 INFO  HaplotypeCaller - Shutting down engine
+[March 15, 2020 5:23:27 PM CET] org.broadinstitute.hellbender.tools.walkers.haplotypecaller.HaplotypeCaller done. Elapsed time: 0.04 minutes.
+Runtime.totalMemory()=2340421632
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar HaplotypeCaller -R ./sh/../fasta/yeast_reference.fa -I example/bams/example.clean.bam -ploidy 1 -O example/gVCF/example.ext.vcf -ERC BP_RESOLUTION -L chr15:624676-625184
+17:23:31.512 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:23:31.657 INFO  GenotypeGVCFs - ------------------------------------------------------------
+17:23:31.657 INFO  GenotypeGVCFs - The Genome Analysis Toolkit (GATK) v4.0.0.0
+17:23:31.658 INFO  GenotypeGVCFs - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:23:31.658 INFO  GenotypeGVCFs - Executing as shli@spinoza.embl.de on Linux v3.10.0-693.5.2.el7.x86_64 amd64
+17:23:31.658 INFO  GenotypeGVCFs - Java runtime: Java HotSpot(TM) 64-Bit Server VM v1.8.0_181-b13
+17:23:31.658 INFO  GenotypeGVCFs - Start Date/Time: March 15, 2020 5:23:31 PM CET
+17:23:31.658 INFO  GenotypeGVCFs - ------------------------------------------------------------
+17:23:31.658 INFO  GenotypeGVCFs - ------------------------------------------------------------
+17:23:31.659 INFO  GenotypeGVCFs - HTSJDK Version: 2.13.2
+17:23:31.659 INFO  GenotypeGVCFs - Picard Version: 2.17.2
+17:23:31.659 INFO  GenotypeGVCFs - HTSJDK Defaults.COMPRESSION_LEVEL : 1
+17:23:31.659 INFO  GenotypeGVCFs - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:23:31.659 INFO  GenotypeGVCFs - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:23:31.659 INFO  GenotypeGVCFs - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:23:31.659 INFO  GenotypeGVCFs - Deflater: IntelDeflater
+17:23:31.659 INFO  GenotypeGVCFs - Inflater: IntelInflater
+17:23:31.660 INFO  GenotypeGVCFs - GCS max retries/reopens: 20
+17:23:31.660 INFO  GenotypeGVCFs - Using google-cloud-java patch 6d11bef1c81f885c26b2b56c8616b7a705171e4f from https://github.com/droazen/google-cloud-java/tree/dr_all_nio_fixes
+17:23:31.660 INFO  GenotypeGVCFs - Initializing engine
+17:23:32.261 INFO  FeatureManager - Using codec VCFCodec to read file file:///g/steinmetz/project/yeast_crispr/github/CRISPReditEff/example/gVCF/example.ext.vcf
+17:23:32.291 INFO  GenotypeGVCFs - Done initializing engine
+17:23:33.245 INFO  ProgressMeter - Starting traversal
+17:23:33.245 INFO  ProgressMeter -        Current Locus  Elapsed Minutes    Variants Processed  Variants/Minute
+17:23:33.357 WARN  ReferenceConfidenceVariantContextMerger - Detected invalid annotations: When trying to merge variant contexts at location chr15:624930 the annotation MLEAC=[1, 0] was not a numerical value and was ignored
+17:23:33.463 INFO  ProgressMeter -             unmapped              0.0                   509         140091.7
+17:23:33.463 INFO  ProgressMeter - Traversal complete. Processed 509 total variants in 0.0 minutes.
+17:23:33.468 INFO  GenotypeGVCFs - Shutting down engine
+[March 15, 2020 5:23:33 PM CET] org.broadinstitute.hellbender.tools.walkers.GenotypeGVCFs done. Elapsed time: 0.03 minutes.
+Runtime.totalMemory()=2042101760
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar GenotypeGVCFs -R ./sh/../fasta/yeast_reference.fa -V example/gVCF/example.ext.vcf -O example/VCF/example.ext.vcf
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+[M::process] read 251384 sequences (32665074 bp)...
+[M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (0, 106, 0, 0)
+[M::mem_pestat] skip orientation FF as there are not enough pairs
+[M::mem_pestat] analyzing insert size distribution for orientation FR...
+[M::mem_pestat] (25, 50, 75) percentile: (101, 165, 216)
+[M::mem_pestat] low and high boundaries for computing mean and std.dev: (1, 446)
+[M::mem_pestat] mean and std.dev: (175.97, 100.35)
+[M::mem_pestat] low and high boundaries for proper pairs: (1, 577)
+[M::mem_pestat] skip orientation RF as there are not enough pairs
+[M::mem_pestat] skip orientation RR as there are not enough pairs
+[M::mem_process_seqs] Processed 251384 reads in 21.160 CPU sec, 2.839 real sec
+[main] Version: 0.7.17-r1188
+[main] CMD: bwa mem -t 8 ./sh/../fasta/REDI_cassette_pKR348.fa example/seqs/example.r1.0.trimmed.fastq example/seqs/example.r2.0.trimmed.fastq
+[main] Real time: 9.056 sec; CPU: 21.864 sec
+17:23:48.559 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+[Sun Mar 15 17:23:48 CET 2020] SortSam  --INPUT example/bams/example.0.barcode.mapped.bam --OUTPUT example/bams/example.0.barcode.sort.bam --SORT_ORDER coordinate --VALIDATION_STRINGENCY SILENT  --VERBOSITY INFO --QUIET false --COMPRESSION_LEVEL 1 --MAX_RECORDS_IN_RAM 500000 --CREATE_INDEX false --CREATE_MD5_FILE false --GA4GH_CLIENT_SECRETS client_secrets.json --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+[Sun Mar 15 17:23:48 CET 2020] Executing as shli@spinoza.embl.de on Linux 3.10.0-693.5.2.el7.x86_64 amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_181-b13; Deflater: Intel; Inflater: Intel; Picard version: Version:4.0.0.0
+INFO	2020-03-15 17:23:48	SortSam	Finished reading inputs, merging and writing to output now.
+[Sun Mar 15 17:23:48 CET 2020] picard.sam.SortSam done. Elapsed time: 0.00 minutes.
+Runtime.totalMemory()=1464860672
+Tool returned:
+0
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar SortSam -I example/bams/example.0.barcode.mapped.bam -O example/bams/example.0.barcode.sort.bam -SO coordinate --VALIDATION_STRINGENCY SILENT
+17:23:52.962 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+[Sun Mar 15 17:23:52 CET 2020] MarkDuplicates  --INPUT example/bams/example.0.barcode.sort.bam --OUTPUT example/bams/example.barcode.sort.dedup.bam --METRICS_FILE example/bams/example.barcode.metrics --VALIDATION_STRINGENCY SILENT  --MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP 50000 --MAX_FILE_HANDLES_FOR_READ_ENDS_MAP 8000 --SORTING_COLLECTION_SIZE_RATIO 0.25 --TAG_DUPLICATE_SET_MEMBERS false --REMOVE_SEQUENCING_DUPLICATES false --TAGGING_POLICY DontTag --CLEAR_DT true --ADD_PG_TAG_TO_READS true --REMOVE_DUPLICATES false --ASSUME_SORTED false --DUPLICATE_SCORING_STRATEGY SUM_OF_BASE_QUALITIES --PROGRAM_RECORD_ID MarkDuplicates --PROGRAM_GROUP_NAME MarkDuplicates --READ_NAME_REGEX <optimized capture of last three ':' separated fields as numeric values> --OPTICAL_DUPLICATE_PIXEL_DISTANCE 100 --MAX_OPTICAL_DUPLICATE_SET_SIZE 300000 --VERBOSITY INFO --QUIET false --COMPRESSION_LEVEL 1 --MAX_RECORDS_IN_RAM 500000 --CREATE_INDEX false --CREATE_MD5_FILE false --GA4GH_CLIENT_SECRETS client_secrets.json --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+[Sun Mar 15 17:23:52 CET 2020] Executing as shli@spinoza.embl.de on Linux 3.10.0-693.5.2.el7.x86_64 amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_181-b13; Deflater: Intel; Inflater: Intel; Picard version: Version:4.0.0.0
+INFO	2020-03-15 17:23:53	MarkDuplicates	Start of doWork freeMemory: 1614953984; totalMemory: 1646788608; maxMemory: 28631367680
+INFO	2020-03-15 17:23:53	MarkDuplicates	Reading input file and constructing read end information.
+INFO	2020-03-15 17:23:53	MarkDuplicates	Will retain up to 103736839 data points before spilling to disk.
+INFO	2020-03-15 17:23:53	MarkDuplicates	Read 227 records. 0 pairs never matched.
+INFO	2020-03-15 17:23:57	MarkDuplicates	After buildSortedReadEndLists freeMemory: 781958744; totalMemory: 1633157120; maxMemory: 28631367680
+INFO	2020-03-15 17:23:57	MarkDuplicates	Will retain up to 894730240 duplicate indices before spilling to disk.
+INFO	2020-03-15 17:24:02	MarkDuplicates	Traversing read pair information and detecting duplicates.
+INFO	2020-03-15 17:24:02	MarkDuplicates	Traversing fragment information and detecting duplicates.
+INFO	2020-03-15 17:24:02	MarkDuplicates	Sorting list of duplicate records.
+INFO	2020-03-15 17:24:04	MarkDuplicates	After generateDuplicateIndexes freeMemory: 1612696200; totalMemory: 8791261184; maxMemory: 28631367680
+INFO	2020-03-15 17:24:04	MarkDuplicates	Marking 4 records as duplicates.
+INFO	2020-03-15 17:24:04	MarkDuplicates	Found 0 optical duplicate clusters.
+INFO	2020-03-15 17:24:04	MarkDuplicates	Reads are assumed to be ordered by: coordinate
+INFO	2020-03-15 17:24:04	MarkDuplicates	Before output close freeMemory: 8769467720; totalMemory: 8790736896; maxMemory: 28631367680
+INFO	2020-03-15 17:24:04	MarkDuplicates	After output close freeMemory: 8768601248; totalMemory: 8789688320; maxMemory: 28631367680
+[Sun Mar 15 17:24:04 CET 2020] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 0.19 minutes.
+Runtime.totalMemory()=8789688320
+Tool returned:
+0
+Using GATK jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=1 -jar /g/steinmetz/shli/softwares/src/gatk-4.0.0.0/gatk-package-4.0.0.0-local.jar MarkDuplicates -I example/bams/example.0.barcode.sort.bam -O example/bams/example.barcode.sort.dedup.bam -M example/bams/example.barcode.metrics --VALIDATION_STRINGENCY SILENT
