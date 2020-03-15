@@ -1,5 +1,6 @@
 #usage: perl cleanDonorReads.pl input.sam output.sam chromsome donor_start donor_end
 use Getopt::Long;
+use File::Basename;
 use strict;
 use constant FALSE => 1==0;
 use constant TRUE => not FALSE;
@@ -10,6 +11,7 @@ my $chromosome;
 my $donor_start;
 my $donor_end;
 my $flexible_bases=6;
+my $bl_region_file=dirname("$0")."/../data/REDI_reads_mapped_regions.txt";
 ## flexible_bases: interval to test is slightly extended relative to the donor, as the construct has a change to match the sequence of genome. 6 bases by defalt are considered as the maximum number of match by chance. 
 my %chr_name_switch=("I"=>1,"II"=>2,"III"=>3,"IV"=>4,"V"=>5,"VI"=>6,"VII"=>7,
 					"VIII"=>8,"IX"=>9,"X"=>10,"XI"=>11,"XII"=>12,"XIII"=>13,
@@ -42,7 +44,7 @@ if($chr_name_switch{$chr_test})
 {
 	$chromosome="chr".$chr_name_switch{$chr_test};
 }
-#my %cassette_elements=("chr15"=>"721500-723000","chr5"=>"116000-117000");
+my %cassette_elements=("chr15"=>"721500-723000","chr5"=>"116000-117000");
 
 sub length_CIGAR
 {
@@ -137,11 +139,43 @@ sub is_softclipped_near_junction
 	return $ISNJ;
 }
 
-sub is_transloca
+sub is_mapped_to_cassete
+{
+	my ($chr,$coord,$black_list_ref)=@_;
+	my $is_mapped_to_cassete=FALSE;
+	foreach my $blchr(keys %{$black_list_ref})
+	{
+		if($blchr eq $chr)
+		{
+			foreach my $blstart(keys %{$black_list_ref->{$blchr}})
+			{
+				foreach my $blend(keys %{$black_list_ref->{$blchr}{$blstart}})
+				{
+					if(($coord < $blend)&&($coord > $blstart))
+					{
+						$is_mapped_to_cassete=TRUE
+					}
+				}
+			}
+		}
+	}
+	return $is_mapped_to_cassete;
+}
+
+#Load "black-listed" regions where REDI cassete reads map to
+open(BL,$bl_region_file);
+my $REDI_regions;
+while(my $read_line=<BL>)
+{
+	chomp $read_line;
+	my @read_column=split("\t",$read_line);
+	$REDI_regions->{$read_column[0]}{$read_column[1]}{$read_column[2]}++;
+}
+
 
 print "START searching for construct reads...\n";
 open(INSAM,$input_sam);
-my %read_is_overlapped;
+my %is_overlapped;
 my %fragment_is_contained;
 my %is_softclipped_near_junction;
 my %is_translocation_to_REDI;
@@ -150,6 +184,9 @@ my %discard_list_unique;
 my %on_target_list_unique;
 my %translocation_list_unique;
 my $line_count=0;
+
+#stopped here
+
 while(my $read_line=<INSAM>)
 {
 	chomp $read_line;
