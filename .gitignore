@@ -1,0 +1,14 @@
+
+*.idx
+example/map_stats/example.flagstats
+example/map_stats/example.idxstats
+*.bam
+*.bai
+*.reads
+*.sam
+*.html
+*.zip
+*.tbl
+*.vcf
+*.table
+example/recal/example.BQSR.pdf
