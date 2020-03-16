@@ -12,3 +12,4 @@ example/map_stats/example.idxstats
 *.vcf
 *.table
 example/recal/example.BQSR.pdf
+nohup.out
