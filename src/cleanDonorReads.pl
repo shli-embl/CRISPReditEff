@@ -5,33 +5,35 @@ use strict;
 use constant FALSE => 1==0;
 use constant TRUE => not FALSE;
 my $display_help;
-my $input_sam;
-my $output_sam;
+my $input_bam;
+my $output_bam;
 my $chromosome;
 my $donor_start;
 my $donor_end;
 my $flexible_bases=6;
+my $verbose="";
 my $bl_region_file=dirname("$0")."/../data/REDI_reads_mapped_regions.txt";
 ## flexible_bases: interval to test is slightly extended relative to the donor, as the construct has a change to match the sequence of genome. 6 bases by defalt are considered as the maximum number of match by chance. 
 my %chr_name_switch=("I"=>1,"II"=>2,"III"=>3,"IV"=>4,"V"=>5,"VI"=>6,"VII"=>7,
 					"VIII"=>8,"IX"=>9,"X"=>10,"XI"=>11,"XII"=>12,"XIII"=>13,
 					"XIV"=>14,"XV"=>15,"XVI"=>16);
-GetOptions('h' => \$display_help, 'in=s' => \$input_sam, 'out=s' =>\$output_sam, 'chr=s' =>\$chromosome, 'd_start=s' =>\$donor_start, 'd_end=s' =>\$donor_end);
+GetOptions('h' => \$display_help, 'in=s' => \$input_bam, 'out=s' =>\$output_bam, 'chr=s' =>\$chromosome, 'd_start=i' =>\$donor_start, 'd_end=i' =>\$donor_end, 'verbose' =>\$verbose);
 if($display_help)
 {
-	print "Command: \n\tperl cleanDonorReads.pl [-h] -in INPUT_SAM -out OUTPUT_SAM -chr CHROMOSOME -d_start DONOR_START_COORD -d_end DONOR_END_COORD\n\n";
+	print "Command: \n\tperl cleanDonorReads.pl [-h] -in INPUT_BAM -out OUTPUT_BAM -chr CHROMOSOME -d_start DONOR_START_COORD -d_end DONOR_END_COORD\n\n";
 	print "Function: \n\tExclude DNA donor-related reads from target sites in a given SAM file.\n\n";
 	print "Usage: \n";
 	print "\t-h\tPrint help info.\n";
-	print "\t-in\tInput SAM.\n";
-	print "\t-out\tOutput SAM (with clean target mapping).\n";
+	print "\t-in\tInput BAM.\n";
+	print "\t-out\tOutput BAM (with clean target mapping).\n";
 	print "\t-chr\tChromosome of target.\n";
 	print "\t-d_start\tPosition of donor start on chromosome.\n";
 	print "\t-d_end\tPosition of donor end on chromosome.\n";
+	print "\t-verbose\tTurn on verbose mode.\n";
 	exit 1;
 }
 
-if((!$input_sam)||(!$output_sam)||(!$chromosome)||(!$donor_start)||(!$donor_end))
+if((!$input_bam)||(!$output_bam)||(!$chromosome)||(!$donor_start)||(!$donor_end))
 {
 	print "Missing arguments.\n";
 	print "Use -h for looking at usage...\n";
@@ -44,7 +46,6 @@ if($chr_name_switch{$chr_test})
 {
 	$chromosome="chr".$chr_name_switch{$chr_test};
 }
-my %cassette_elements=("chr15"=>"721500-723000","chr5"=>"116000-117000");
 
 sub length_CIGAR
 {
@@ -173,21 +174,18 @@ while(my $read_line=<BL>)
 }
 
 
-print "START searching for construct reads...\n";
-open(INSAM,$input_sam);
-my %is_overlapped;
-my %fragment_is_contained;
-my %is_softclipped_near_junction;
-my %is_translocation_to_REDI;
+print "START marking donor reads...\n";
+open(INBAM,"samtools view -h ".$input_bam." |");
 
-my %discard_list_unique;
-my %on_target_list_unique;
-my %translocation_list_unique;
+my %overlapped_fragments;
+my %discarded_fragments;
+my %included_fragments;
+my %REDI_translocation_fragments;
 my $line_count=0;
 
 #stopped here
 
-while(my $read_line=<INSAM>)
+while(my $read_line=<INBAM>)
 {
 	chomp $read_line;
 	if($line_count%100000==1)
@@ -200,100 +198,81 @@ while(my $read_line=<INSAM>)
 		my @read_column=split("\t",$read_line);
 		my ($seqpair_name,$FLAG,$seq_self_chr,$seq_self_map_start,$variable4,$seq_CIGAR,$seq_mate_chr,$seq_mate_map_start,$fragment_size)=@read_column;
 		
-		if($seq_self_chr eq $chromosome)
+		if(($seq_self_chr eq $chromosome)&&(&is_overlapped($donor_start,$donor_end,$seq_self_map_start,$seq_self_map_start+&length_CIGAR($seq_CIGAR))))
+		#if a read overlaps target region
 		{
-			if(&is_overlapped($donor_start,$donor_end,$seq_self_map_start,$seq_self_map_start+&length_CIGAR($seq_CIGAR))
-			{
-				
-			}
-		}
-		
-		
-		
-		
-		
-		my $this_seq_overlap_target=FALSE;
-		my $mate_seq_not_same_location=FALSE;
-		#if the read overlapps target interval, returns $this_seq_overlap_target=TRUE
-		if($seq_self_chr eq $chromosome)
-		{
-			if(($donor_start>=$seq_self_map_start)&&($donor_start<($seq_self_map_start+&length_CIGAR($seq_CIGAR)))||(($donor_end>=$seq_self_map_start)&&($donor_end<($seq_self_map_start+&length_CIGAR($seq_CIGAR))))||(($donor_start<$seq_self_map_start)&&($donor_end>=($seq_self_map_start+&length_CIGAR($seq_CIGAR)))))
-			{
-				$this_seq_overlap_target=TRUE;				
-			}
-		}
-		#if the read mate maps to another chromosome, or has a fragment size > 1000, returns mate_seq_not_same_location=TRUE
-		if(($seq_mate_chr ne "=")||(abs($seq_mate_map_start-$seq_self_map_start)>1000)||($fragment_size==0))
-		{
-			$mate_seq_not_same_location=TRUE;
-		}
-		#if the read overlaps target interval and its mate pair doesn't map to same loc; then check if it overlaps the junction of donor (see if it is more likely a donor read) (allows 3bp outside being aligned)
-		if($this_seq_overlap_target)
-		{
-			if($mate_seq_not_same_location)
-			{
-				if((($donor_start-$seq_self_map_start)<=5)&&(($donor_end-$seq_self_map_start-&length_CIGAR($seq_CIGAR))>=(-5)))
-				{
-					$discard_list_unique{$seqpair_name}=1;
-					
-				}
-				else
-				{					
-					#need update: if mate read map to HIS3, $is_cassette_read=1
-					
-					$on_target_list_unique{$seqpair_name}=1;
-					
-					my $mate_chr=$seq_self_chr;
-					if($seq_mate_chr ne "=")
-					{
-						$mate_chr=$seq_mate_chr;
-					}
-					my $mate_coord=$seq_mate_map_start;
-					
-					if($cassette_elements{$mate_chr})
-					{
-						my @element_interval=split("-",$cassette_elements{$mate_chr});
-						if(($mate_coord >= $element_interval[0])&&($mate_coord <= $element_interval[1]))
-						{
-							$translocation_list_unique{$seqpair_name}=1;
-						}
-					}
-					
-				}
-			}
-			#else if normal read pairs, check if the fragment size encompass the junction of donor
-			else
+			$overlapped_fragments{$seqpair_name}++;
+			if(($seq_mate_chr eq "=")&&(abs($fragment_size)<1000))
+			#if its mate read map to a near location
 			{
 				my $fragment_start=&min($seq_self_map_start,$seq_mate_map_start);
-				my $fragment_end=$fragment_start+$fragment_size-1;
-				if((($donor_start-$fragment_start)<=6)&&($donor_end-$fragment_end>=(-6)))
+				my $fragment_end=$fragment_start + abs($fragment_size) - 1;
+				
+				if(&is_contained($fragment_start,$fragment_end,$donor_start-$flexible_bases,$donor_end+$flexible_bases))
+				#judge if fragment is contained by donor boundary. if so, mark and discard the pair from target site. 
 				{
-					$discard_list_unique{$seqpair_name}=1;
+					$discarded_fragments{$seqpair_name}++;
 				}
+				#otherwise, test if a softclip is detect near donor boundary: yes->keep the reads and mark as potential REDI translocation; no->keep the reads
 				else
 				{
-					$on_target_list_unique{$seqpair_name}=1;
-					if(&is_from_cassette($seq_CIGAR,$seq_self_map_start,$donor_start,$donor_end))
+					$included_fragments{$seqpair_name}++;
+					if(&is_softclipped_near_junction($donor_start,$donor_end,$seq_self_map_start,$seq_CIGAR,$flexible_bases))
 					{
-						$translocation_list_unique{$seqpair_name}=1;
+						$REDI_translocation_fragments{$seqpair_name}++;
 					}
 				}
 			}
+			elsif($seq_mate_chr ne "*")
+			#elseif its mate read map to a distal location(or other chromosomes)
+			{
+				if(&is_mapped_to_cassete($seq_mate_chr,$seq_mate_map_start,$REDI_regions))
+				#test if the mate read map to REDI-related regions (from loaded black list), if so, marked and discard the pair from target site. 
+				{
+					if(!&is_contained($seq_self_map_start,$seq_self_map_start+&length_CIGAR($seq_CIGAR)-1,$donor_start-$flexible_bases,$donor_end+$flexible_bases))
+					#if a read exceed the donor boundary (is not contained) and its mate read map to REDI-related regions, this suggests a potential REDI-target translocation. The read is kept and recorded as "potential REDI translocation"
+					{
+						$included_fragments{$seqpair_name}++;
+						$REDI_translocation_fragments{$seqpair_name}++;
+					}
+					else
+					#otherwise it suggests an orgin from REDI cassette. Reads are removed. 
+					{
+						$discarded_fragments{$seqpair_name}++;
+					}
+				}
+				else
+				#if not, keep the translocation reads. 
+				{
+					$included_fragments{$seqpair_name}++;
+				}
+			}
+			else
+			#elseif its mate read isn't properly mapped, discard the read
+			{
+				$discarded_fragments{$seqpair_name}++;
+			}
 		}
-
-		
 		
 	}
-}
-close INSAM;
-print "Start filtering SAM file\n";
-open(INSAM,$input_sam);
-open(OUTSAM,">".$output_sam);
-open(DISCARD,">".$output_sam.".discarded.reads");
-open(MAP,">".$output_sam.".mapped.reads");
-open(TRANSLOCATION,">".$output_sam.".translocation.reads");
+}		
+
+close INBAM;
+print "Start filtering BAM file\n";
+open(INBAM,"samtools view -h ".$input_bam." |");
+open(OUTSAM,">".$output_bam.".tmp.sam");
+open(ANNOTATION,">".$output_bam.".target_filtering.anno");
 $line_count=0;
-while(my $read_line=<INSAM>)
+
+print ANNOTATION "overlapped_frag\tdiscarded_frag\tincluded_frag\tREDI_translocation_frag\n";
+#output numbers of 1) all overlapped fragments to target interval; 2) excluded fragments (barcode locus-related); 3) included correctly mapped target reads; 4) potential REDI-barcode locus translocation fragments;
+print ANNOTATION (my $size1 = keys %overlapped_fragments),"\t",(my $size2=keys %discarded_fragments),"\t",(my $size3=keys %included_fragments),"\t",(my $size4=keys %REDI_translocation_fragments),"\n";
+if($verbose)
+{
+	print ANNOTATION "\n\nREAD_INFO:\n";
+}
+
+while(my $read_line=<INBAM>)
 {
 	chomp $read_line;
 	if($line_count%100000==1)
@@ -305,23 +284,47 @@ while(my $read_line=<INSAM>)
 	{
 		my @read_column=split("\t",$read_line);
 		my $readpair_name=$read_column[0];
-		my $FLAG=$read_column[1];
-		if($discard_list_unique{$readpair_name})
+		if($overlapped_fragments{$readpair_name})
 		{
-			print DISCARD $read_line,"\n";
+			if($discarded_fragments{$readpair_name})
+			{
+				if($verbose)
+				{
+					if($verbose)
+					{
+						print ANNOTATION "DISCARD: ",$readpair_name,"\n";
+					}
+				}
+				
+			}
+			elsif($included_fragments{$readpair_name})
+			{
+				print OUTSAM $read_line,"\n";
+				print ANNOTATION "INCLUDE: ",$readpair_name,"\n";
+				if($REDI_translocation_fragments{$readpair_name,"\n"})
+				{
+					if($verbose)
+					{
+						print ANNOTATION "REDITRANS: ",$readpair_name,"\n";
+					}
+					
+				}
+			}
+			else
+			{
+				
+				if($verbose)
+				{
+					print ANNOTATION "UNKOWN: ",$readpair_name,"\n";
+				}
+				print $read_line,"\n";
+				
+			}
 		}
 		else
 		{
 			print OUTSAM $read_line,"\n";
-			if($on_target_list_unique{$readpair_name})
-			{
-				print MAP $read_line,"\n";
-				if($translocation_list_unique{$readpair_name})
-				{
-					print TRANSLOCATION $read_line,"\n";
-				}
-			}
-		}			
+		}
 	}
 	else
 	{
@@ -329,7 +332,6 @@ while(my $read_line=<INSAM>)
 	}
 }
 
-my $length_filtered=keys %discard_list_unique;
-my $length_remain=keys %on_target_list_unique;
-
-print "In total, ",$length_filtered," pairs are potentially from construct; ",$length_remain," pairs are overlapping the target site.\n"
+system("samtools view -bS ".$output_bam.".tmp.sam > ".$output_bam);
+system("samtools index $output_bam");
+system("rm ".$output_bam.".tmp.sam");
