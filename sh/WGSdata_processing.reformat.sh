@@ -72,7 +72,9 @@ REFERENCE_GENOME="$FASTA_PATH/yeast_reference.fa"
 declare -A YL_TO_BACKBONE=(["YL151"]="pKR452" ["YL152"]="pKR452" ["YL153"]="pKR348" ["YL154"]="pKR348" ["YL155"]="pKR452" ["YL156"]="pKR452")
 declare -A BACKBONE_REF_GENOME=(["pKR452"]="$FASTA_PATH/REDI_cassette_pKR452.fa" ["pKR348"]="$FASTA_PATH/REDI_cassette_pKR348.fa")
 declare -A GUIDE_START_COORD=(["pKR452"]=1483 ["pKR348"]=1640)
+declare -A GUIDE_END_COORD=(["pKR452"]=1502 ["pKR348"]=1659)
 declare -A BC1_START_COORD=(["pKR452"]=3837 ["pKR348"]=3994)
+declare -A BC1_END_COORD=(["pKR452"]=3867 ["pKR348"]=4024)
 #flanking sequences of guide used for calling
 declare -A GUIDE_LEFT_150BP=(["pKR452"]="AAGGTGCGCATTTTTTCACACCCTACAATGTTCTGTTCAAAAGATTTTGGTCAAACGCTGTAGAAGTGAAAGTTGGTGCGCATGTTTCGGCGTTCGAAACTTCTCCGCAGTGAAAGATAAATGATCGGAGCTGCGATTGGCAGGCGCGCC" \
 ["pKR348"]="TAATTTATCACTACGAAATCTTGAGATCGGGCGTTCGACTCGCCCCCGGGAGAGATGGCCGGCATGGTCCCAGCCTCCTCGCTGGCGCCGGCTGGGCAACACCTTCGGGTGGCGAATGGGACTTTGGGAGCTGCGATTGGCAGGCGCGCC")
@@ -201,10 +203,7 @@ samtools flagstat $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.bam > $OUT_DIR/ma
 
 #STEP7: CLEAN THE TARGET SITE (REMOVE READS FROM LANDINGPAD)
 samtools view -h $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.bam > $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.sam
-perl $SRC_PATH/step6_cleanDonorReads.pl $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.sam $OUT_DIR/bams/$SAMPLE_NAME.clean.sam $V_CHR $D_START $D_END
-samtools view -bS $OUT_DIR/bams/$SAMPLE_NAME.clean.sam > $OUT_DIR/bams/$SAMPLE_NAME.clean.bam
-samtools index $OUT_DIR/bams/$SAMPLE_NAME.clean.bam
-rm $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.sam $OUT_DIR/bams/$SAMPLE_NAME.clean.sam
+perl $SRC_PATH/cleanDonorReads.pl -in $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.bam -out $OUT_DIR/bams/$SAMPLE_NAME.clean.bam -chr $V_CHR -d_start $D_START -d_end $D_END -verbose
 
 #STEP8: CALL VARIANTS AT TARGET SITE
 gatk HaplotypeCaller -R $REFERENCE_GENOME -I $OUT_DIR/bams/$SAMPLE_NAME.clean.bam -ploidy 1 -O $OUT_DIR/gVCF/$SAMPLE_NAME.vcf -ERC BP_RESOLUTION -L ${V_CHR}:${D_START}-${D_END}
@@ -240,17 +239,17 @@ samtools index $OUT_DIR/bams/$SAMPLE_NAME.barcode.bam
 
 ##calling guide and barcode
 GUIDE_START=${GUIDE_START_COORD[$BACKBONE]}
+GUIDE_END=${GUIDE_END_COORD[$BACKBONE]}
 BC1_START=${BC1_START_COORD[$BACKBONE]}
+BC1_END=${BC1_END_COORD[$BACKBONE]}
 GUIDE_RIGHT=${GUIDE_RIGHT_150BP[$BACKBONE]}
 GUIDE_LEFT=${GUIDE_LEFT_150BP[$BACKBONE]}
 BC1_RIGHT=${BC1_RIGHT_150BP[$BACKBONE]}
 BC1_LEFT=${BC1_LEFT_150BP[$BACKBONE]}
-samtools view -h $OUT_DIR/bams/$SAMPLE_NAME.barcode.bam > $OUT_DIR/bams/$SAMPLE_NAME.barcode.sam
-perl $SRC_PATH/getbarcodes.v11.pl $OUT_DIR/bams/$SAMPLE_NAME.barcode.sam $OUT_DIR/guide_barcode/$SAMPLE_NAME.guide.tbl $GUIDE_START 20 $GUIDE_RIGHT $GUIDE_LEFT
-perl $SRC_PATH/getbarcodes.v11.pl $OUT_DIR/bams/$SAMPLE_NAME.barcode.sam $OUT_DIR/guide_barcode/$SAMPLE_NAME.barcode.tbl $BC1_START 31 $BC1_RIGHT $BC1_LEFT
+perl $SRC_PATH/extractGuideBarcode.pl -in $OUT_DIR/bams/$SAMPLE_NAME.barcode.bam -out $OUT_DIR/guide_barcode/$SAMPLE_NAME.guide.tbl -pos GRNA_BARCODEV2:$GUIDE_START-$GUIDE_END -L $GUIDE_LEFT -R $GUIDE_RIGHT 
+perl $SRC_PATH/extractGuideBarcode.pl -in $OUT_DIR/bams/$SAMPLE_NAME.barcode.bam -out $OUT_DIR/guide_barcode/$SAMPLE_NAME.barcode.tbl -pos GRNA_BARCODEV2:$BC1_START-$BC1_END -L $BC1_LEFT -R $BC1_RIGHT 
 
 for ((N=0;N<N_FILE;N++))
 do
 	rm $OUT_DIR/seqs/$SAMPLE_NAME.r1.$N.trimmed.fastq $OUT_DIR/seqs/$SAMPLE_NAME.r2.$N.trimmed.fastq
 done
-rm $OUT_DIR/bams/$SAMPLE_NAME.barcode.sam 
