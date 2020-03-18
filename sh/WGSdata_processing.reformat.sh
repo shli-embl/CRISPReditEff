@@ -159,7 +159,7 @@ do
 		-a CTGTCTCTTATACACATCTGACGCTGCCGACGA -A CTGTCTCTTATACACATCTGACGCTGCCGACGA \
 		-g GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG -G GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG \
 		-a CTGTCTCTTATACACATCTCCGAGCCCACGAGAC -A CTGTCTCTTATACACATCTCCGAGCCCACGAGAC \
-		-o $OUT_DIR/seqs/$SAMPLE_NAME.r1.$N.trimmed.fastq -p $OUT_DIR/seqs/$SAMPLE_NAME.r2.$N.trimmed.fastq -q 20 --trim-n -m 20 --max-n=0 ${SEQFILES1[N]} ${SEQFILES2[N]}
+		--quiet -o $OUT_DIR/seqs/$SAMPLE_NAME.r1.$N.trimmed.fastq -p $OUT_DIR/seqs/$SAMPLE_NAME.r2.$N.trimmed.fastq -q 20 --trim-n -m 20 --max-n=0 ${SEQFILES1[N]} ${SEQFILES2[N]}
 
 	fastqc -o $OUT_DIR/fastqc/$SAMPLE_NAME.fastqc $OUT_DIR/seqs/$SAMPLE_NAME.r1.$N.trimmed.fastq $OUT_DIR/seqs/$SAMPLE_NAME.r2.$N.trimmed.fastq
 	
@@ -202,7 +202,6 @@ samtools idxstats $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.bam > $OUT_DIR/ma
 samtools flagstat $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.bam > $OUT_DIR/map_stats/$SAMPLE_NAME.flagstats
 
 #STEP7: CLEAN THE TARGET SITE (REMOVE READS FROM LANDINGPAD)
-samtools view -h $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.bam > $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.sam
 perl $SRC_PATH/cleanDonorReads.pl -in $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.bam -out $OUT_DIR/bams/$SAMPLE_NAME.clean.bam -chr $V_CHR -d_start $D_START -d_end $D_END -verbose
 
 #STEP8: CALL VARIANTS AT TARGET SITE
@@ -246,8 +245,8 @@ GUIDE_RIGHT=${GUIDE_RIGHT_150BP[$BACKBONE]}
 GUIDE_LEFT=${GUIDE_LEFT_150BP[$BACKBONE]}
 BC1_RIGHT=${BC1_RIGHT_150BP[$BACKBONE]}
 BC1_LEFT=${BC1_LEFT_150BP[$BACKBONE]}
-perl $SRC_PATH/extractGuideBarcode.pl -in $OUT_DIR/bams/$SAMPLE_NAME.barcode.bam -out $OUT_DIR/guide_barcode/$SAMPLE_NAME.guide.tbl -pos GRNA_BARCODEV2:$GUIDE_START-$GUIDE_END -L $GUIDE_LEFT -R $GUIDE_RIGHT 
-perl $SRC_PATH/extractGuideBarcode.pl -in $OUT_DIR/bams/$SAMPLE_NAME.barcode.bam -out $OUT_DIR/guide_barcode/$SAMPLE_NAME.barcode.tbl -pos GRNA_BARCODEV2:$BC1_START-$BC1_END -L $BC1_LEFT -R $BC1_RIGHT 
+perl $SRC_PATH/extractGuideBarcode.pl -in $OUT_DIR/bams/$SAMPLE_NAME.barcode.bam -out $OUT_DIR/guide_barcode/$SAMPLE_NAME.guide.tbl -pos REDI_CASSETTE_$BACKBONE:$GUIDE_START-$GUIDE_END -L $GUIDE_LEFT -R $GUIDE_RIGHT 
+perl $SRC_PATH/extractGuideBarcode.pl -in $OUT_DIR/bams/$SAMPLE_NAME.barcode.bam -out $OUT_DIR/guide_barcode/$SAMPLE_NAME.barcode.tbl -pos REDI_CASSETTE_$BACKBONE:$BC1_START-$BC1_END -L $BC1_LEFT -R $BC1_RIGHT 
 
 for ((N=0;N<N_FILE;N++))
 do
