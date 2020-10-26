@@ -148,7 +148,7 @@ do
 	fi
 done
 
-
+<<'COMMENT'
 #START processing reads
 for ((N=0;N<N_FILE;N++))
 do
@@ -194,14 +194,13 @@ gatk BaseRecalibrator -R $REFERENCE_GENOME -I $OUT_DIR/bams/$SAMPLE_NAME.sort.de
 gatk ApplyBQSR -R $REFERENCE_GENOME -I $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal1.bam --bqsr-recal-file $OUT_DIR/recal/$SAMPLE_NAME.recal2.table -O $OUT_DIR/bams/${SAMPLE_NAME}.sort.dedup.recal2.bam
 rm $OUT_DIR/recal/$SAMPLE_NAME.recal2.vcf $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal1.bam $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal1.bai $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.bai
 rm $OUT_DIR/recal/$SAMPLE_NAME.recal1.vcf.idx $OUT_DIR/recal/$SAMPLE_NAME.recal2.vcf.idx
-## plot generation disabled by default
-#gatk AnalyzeCovariates -before $OUT_DIR/recal/$SAMPLE_NAME.recal1.table -after $OUT_DIR/recal/$SAMPLE_NAME.recal2.table -plots $OUT_DIR/recal/$SAMPLE_NAME.BQSR.pdf
+gatk AnalyzeCovariates -before $OUT_DIR/recal/$SAMPLE_NAME.recal1.table -after $OUT_DIR/recal/$SAMPLE_NAME.recal2.table -plots $OUT_DIR/recal/$SAMPLE_NAME.BQSR.pdf
 
 #STEP6: INDEX FINAL BAM FILE; CALCULATE STATS
 samtools index $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.bam
 samtools idxstats $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.bam > $OUT_DIR/map_stats/$SAMPLE_NAME.idxstats
 samtools flagstat $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.bam > $OUT_DIR/map_stats/$SAMPLE_NAME.flagstats
-
+COMMENT
 #STEP7: CLEAN THE TARGET SITE (REMOVE READS FROM LANDINGPAD)
 perl $SRC_PATH/cleanDonorReads.pl -in $OUT_DIR/bams/$SAMPLE_NAME.sort.dedup.recal2.bam -out $OUT_DIR/bams/$SAMPLE_NAME.clean.bam -chr $V_CHR -d_start $D_START -d_end $D_END -verbose
 
@@ -216,7 +215,7 @@ D_EXT_END=$((D_END + 200))
 gatk HaplotypeCaller -R $REFERENCE_GENOME -I $OUT_DIR/bams/$SAMPLE_NAME.clean.bam -ploidy 1 -O $OUT_DIR/gVCF/$SAMPLE_NAME.ext.vcf -ERC BP_RESOLUTION -L ${V_CHR}:${D_EXT_START}-${D_EXT_END}
 
 gatk GenotypeGVCFs -R $REFERENCE_GENOME -V ${OUT_DIR}/gVCF/${SAMPLE_NAME}.ext.vcf -O ${OUT_DIR}/VCF/${SAMPLE_NAME}.ext.vcf
-
+<<'COMMENT'
 #STEPS1: MAP READS TO CONSTRUCT AND CALL GUIDE AND BARCODE
 for ((N=0;N<N_FILE;N++))
 do
@@ -253,3 +252,4 @@ for ((N=0;N<N_FILE;N++))
 do
 	rm $OUT_DIR/seqs/$SAMPLE_NAME.r1.$N.trimmed.fastq $OUT_DIR/seqs/$SAMPLE_NAME.r2.$N.trimmed.fastq
 done
+COMMENT

@@ -150,7 +150,7 @@ sub aln_mm
 {
 	my ($seq1,$seq2)=@_;
 	my $match=10;
-	my $mismatch=-10;
+	my $mismatch=-5;
 	my $gop=-10;
 	my $gep=-1;
 	#score matrix
@@ -183,6 +183,10 @@ sub aln_mm
 			elsif((substr($seq1,$i-1,1) eq "N")||(substr($seq2,$j-1,1) eq "N"))
 			{
 				$s=0;
+			}
+			else
+			{
+				$s=$mismatch;
 			}
 			
 			#Subsititution

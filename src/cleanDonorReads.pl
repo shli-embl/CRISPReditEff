@@ -12,7 +12,7 @@ my $donor_start;
 my $donor_end;
 my $flexible_bases=6;
 my $verbose="";
-my $bl_region_file=dirname("$0")."/../data/REDI_reads_mapped_regions.txt";
+my $bl_region_file=dirname("$0")."//../data/REDI_reads_mapped_regions.txt";
 ## flexible_bases: interval to test is slightly extended relative to the donor, as the construct has a change to match the sequence of genome. 6 bases by defalt are considered as the maximum number of match by chance. 
 my %chr_name_switch=("I"=>1,"II"=>2,"III"=>3,"IV"=>4,"V"=>5,"VI"=>6,"VII"=>7,
 					"VIII"=>8,"IX"=>9,"X"=>10,"XI"=>11,"XII"=>12,"XIII"=>13,
@@ -21,7 +21,7 @@ GetOptions('h' => \$display_help, 'in=s' => \$input_bam, 'out=s' =>\$output_bam,
 if($display_help)
 {
 	print "Command: \n\tperl cleanDonorReads.pl [-h] -in INPUT_BAM -out OUTPUT_BAM -chr CHROMOSOME -d_start DONOR_START_COORD -d_end DONOR_END_COORD\n\n";
-	print "Function: \n\tExclude DNA donor-related reads from target sites in a given SAM file.\n\n";
+	print "Function: \n\tExclude DNA donor-related reads from target sites in a given BAM file.\n\n";
 	print "Usage: \n";
 	print "\t-h\tPrint help info.\n";
 	print "\t-in\tInput BAM.\n";
@@ -226,6 +226,10 @@ while(my $read_line=<INBAM>)
 			elsif($seq_mate_chr ne "*")
 			#elseif its mate read map to a distal location(or other chromosomes)
 			{
+				if($seq_mate_chr eq "=")
+				{
+					$seq_mate_chr = $seq_self_chr;
+				}
 				if(&is_mapped_to_cassete($seq_mate_chr,$seq_mate_map_start,$REDI_regions))
 				#test if the mate read map to REDI-related regions (from loaded black list), if so, marked and discard the pair from target site. 
 				{
@@ -290,10 +294,7 @@ while(my $read_line=<INBAM>)
 			{
 				if($verbose)
 				{
-					if($verbose)
-					{
-						print ANNOTATION "DISCARD: ",$readpair_name,"\n";
-					}
+					print ANNOTATION "DISCARD: ",$readpair_name,"\n";
 				}
 				
 			}
@@ -301,7 +302,7 @@ while(my $read_line=<INBAM>)
 			{
 				print OUTSAM $read_line,"\n";
 				print ANNOTATION "INCLUDE: ",$readpair_name,"\n";
-				if($REDI_translocation_fragments{$readpair_name,"\n"})
+				if($REDI_translocation_fragments{$readpair_name})
 				{
 					if($verbose)
 					{
